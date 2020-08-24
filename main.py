@@ -25,10 +25,10 @@ class MT:
         'Z': []
     }
 
-    def copiaX(self, i: int):
-        self.fitas.get('Y').append(self.fitas.get('X')[i])
-        self.fitas.get('Z').append(self.fitas.get('X')[i])
-        self.fitas.get('X')[i] = '*'
+    def move_index(self, sentido: chr, index: chr):
+        sinal = self.escolhe_sentido(sentido)
+        if index == 'X':
+            self.indexX += sinal
 
 
 def split(palavra):

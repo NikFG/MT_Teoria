@@ -32,6 +32,10 @@ class MT:
 
 
     def escolhe_sentido(self, sentido) -> int:
+        if sentido == 'd':
+            return 1
+        return -1
+
     def add_valor(self, fita, simbolo):
         index = self.retorna_index(fita)
         if len(self.fitas[fita]) <= index:

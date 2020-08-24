@@ -16,6 +16,9 @@ class Instrucao:
 
 
 class MT:
+    indexX = 0
+    indexY = 0
+    indexZ = 0
     fitas = {
         'X': [],
         'Y': [],

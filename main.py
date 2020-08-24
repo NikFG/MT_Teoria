@@ -33,6 +33,12 @@ class MT:
 
 def split(palavra):
     return [char for char in palavra]
+    def add_valor(self, fita, simbolo):
+        index = self.retorna_index(fita)
+        if len(self.fitas[fita]) <= index:
+            self.fitas[fita].append(simbolo)
+        else:
+            self.fitas[fita][index] = simbolo
 
 
 if __name__ == '__main__':

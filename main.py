@@ -60,10 +60,15 @@ class MT:
 
 
 if __name__ == '__main__':
-    index = 0
-    d = '1234'
     mt = MT()
-    mt.fitas['X'] = split(d)
-    for i in range(0, len(d)):
-        mt.copiaX(i)
-    print(mt.fitas)
+    f = open('teste.mt')
+    for linha in f.readlines():
+        l = linha.strip().split(' - - ')
+        l0, l1 = l[0].split(' '), l[1].split(' ')
+        a = Instrucao(int(l0[0]), l0[1], l0[2], l0[3])
+        b = Instrucao(int(l1[0]), l1[1], l1[2], l1[3])
+        mt.move_index(a.move, a.fita)
+        mt.move_index(b.move, b.fita)
+        mt.add_valor(a.fita, a.simbolo)
+        mt.add_valor(b.fita, b.simbolo)
+    print(mt)

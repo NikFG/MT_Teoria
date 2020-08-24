@@ -34,6 +34,9 @@ class MT:
         else:
             self.indexZ += sinal
 
+    def __str__(self) -> str:
+        return 'fitas: {}, cabeçoteX: {}, cabeçoteY: {}, cabeçoteZ: {}'.format(self.fitas, self.indexX, self.indexY,
+                                                                               self.indexZ)
 
     def escolhe_sentido(self, sentido) -> int:
         if sentido == 'd':

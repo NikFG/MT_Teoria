@@ -29,6 +29,10 @@ class MT:
         sinal = self.escolhe_sentido(sentido)
         if index == 'X':
             self.indexX += sinal
+        elif index == 'Y':
+            self.indexY += sinal
+        else:
+            self.indexZ += sinal
 
 
     def escolhe_sentido(self, sentido) -> int:

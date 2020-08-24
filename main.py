@@ -31,8 +31,7 @@ class MT:
             self.indexX += sinal
 
 
-def split(palavra):
-    return [char for char in palavra]
+    def escolhe_sentido(self, sentido) -> int:
     def add_valor(self, fita, simbolo):
         index = self.retorna_index(fita)
         if len(self.fitas[fita]) <= index:

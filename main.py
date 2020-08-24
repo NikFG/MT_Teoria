@@ -1,3 +1,20 @@
+class Instrucao:
+    estado: int
+    fita: chr
+    simbolo: chr
+    move: chr
+
+    def __init__(self, estado, fita, simbolo, move):
+        self.estado = estado
+        self.fita = fita
+        self.simbolo = simbolo
+        self.move = move
+
+    def __str__(self) -> str:
+        return 'estado: {}, fita: {}, simbolo: {}, move: {}'. \
+            format(str(self.estado), self.fita, self.simbolo, self.move)
+
+
 class MT:
     fitas = {
         'X': [],

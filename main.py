@@ -43,6 +43,14 @@ class MT:
         else:
             self.fitas[fita][index] = simbolo
 
+    def retorna_index(self, fita):
+        if fita == 'X':
+            return self.indexX
+        elif fita == 'Y':
+            return self.indexY
+        else:
+            return self.indexZ
+
 
 if __name__ == '__main__':
     index = 0

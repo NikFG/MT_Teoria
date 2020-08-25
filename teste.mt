@@ -1,5 +1,5 @@
-0 X A d - - 0 Y A d
-0 X C e - - 0 Y C e
-1 X B d - - 1 Y B d
-1 X D d - - 1 Y D d
-1 X E d - - 1 Y E d
+0 X a d - - 0 Y a d
+0 X c e - - 0 Y c e
+1 X b d - - 1 Y b d
+1 X d d - - 1 Y d d
+1 X e d - - 1 Y e d

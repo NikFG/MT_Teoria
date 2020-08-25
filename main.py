@@ -1,4 +1,8 @@
 import re
+
+pattern = re.compile('[a-z]+')
+
+
 class Instrucao:
     estado: int
     fita: chr

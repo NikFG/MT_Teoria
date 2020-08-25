@@ -1,3 +1,4 @@
+import re
 class Instrucao:
     estado: int
     fita: chr

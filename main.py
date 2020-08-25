@@ -9,7 +9,9 @@ class Instrucao:
     simbolo: chr
     move: chr
 
-    def __init__(self, estado, fita, simbolo, move):
+    def __init__(self, estado, fita, simbolo: str, move):
+        if not pattern.fullmatch(simbolo):
+            raise Exception("rejeita")
         self.estado = estado
         self.fita = fita
         self.simbolo = simbolo

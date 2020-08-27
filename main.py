@@ -51,6 +51,8 @@ class MT:
     def escolhe_sentido(self, sentido) -> int:
         if sentido == 'd':
             return 1
+        if sentido == 'i':
+            return 0
         return -1
 
     def add_valor(self, fita, simbolo):

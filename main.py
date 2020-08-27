@@ -89,17 +89,77 @@ if __name__ == '__main__':
     fim_aceita = -1
     fim_rejeita = -1
     alias = []
-        l = linha.strip().split(' - - ')
-        l0, l1 = l[0].split(' '), l[1].split(' ')
-        try:
-            a = Instrucao(int(l0[0]), l0[1], l0[2], l0[3])
-            b = Instrucao(int(l1[0]), l1[1], l1[2], l1[3])
-            mt.move_index(a.move, a.fita)
-            mt.move_index(b.move, b.fita)
-            mt.add_valor(a.fita, a.simbolo)
-            mt.add_valor(b.fita, b.simbolo)
-        except Exception as e:
-            print(e)
+    with open('teste.mt') as f:
+        nome_transicao = ''
+        for linha in f.readlines():
+            if linha.strip() == '':
+                continue
+            if linha.__contains__(';'):
+                linha = linha.strip().split(';')[0]
+                if linha == '':
+                    continue
+            if linha.__contains__('inicio'):
+                linhaAux = linha.strip().split(' ')
+                nome_transicao = linhaAux[1]
+                lista_transicao[nome_transicao] = []
+                estado_atual = int(linhaAux[-1])
+                continue
+            if linha.__contains__('$'):
+                aliasAux = linha.strip().replace('\'', '').replace('\"', '').split(' ')[2]
+                for al in aliasAux:
+                    alias.append(al)
+                continue
+            elif linha.__contains__('aceita'):
+                fim_aceita = int(linha.strip().split(' ')[0])
+            elif linha.__contains__('rejeita'):
+                fim_rejeita = int(linha.strip().split(' ')[0])
+            elif linha.__contains__('fim'):
+                pass
+            else:
+                l = []
+                if ' -- ' in linha:
+                    l = linha.strip().split(' -- ')
+                else:
+                    l = linha.strip().split(' ')
+
+                if not l[1].__contains__(' '):
+                    lista_transicao[l[1]] = []
+                    continue
+                l0, l1 = l[0].split(' '), l[1].split(' ')
+                try:
+                    a = Instrucao(int(l0[0]), l0[1], l0[2], l0[3])
+                    b = Instrucao(int(l1[0]), l1[1], l1[2], l1[3])
+                    lista_transicao['main'].append((a, b))
+                except Exception as e:
+                    print(e)
+                    break
+    for a in lista_transicao['main']:
+        print("{} -- {}".format(a[0], a[1]))
+    continua = True
+    while continua:
+        lados = []
+        i = 0
+        if estado_atual == fim_aceita or estado_atual == fim_rejeita:
+            continua = False
             break
 
-    print(mt)
+        for a in lista_transicao['main']:
+            if a[0].estado == estado_atual:
+                lados.append(a)
+
+        for l in range(0, len(lados)):
+            lado_e = lados[l][0]
+            lado_d = lados[l][1]
+            aux = mt.fitas.get(lado_e.fita)[mt.retorna_index(lado_e.fita)]
+            aux2 = lado_e.simbolo
+            if aux == aux2:
+                mt.move_index(lado_e.move, lado_e.fita)
+                mt.escreve_fita(lado_d)
+                estado_atual = lado_d.estado
+                break
+            elif l + 1 not in range(0, len(lados)):
+                continua = False
+                print('REJEITA')
+                break
+    print(lista_transicao['copiaX'])
+    print(mt.fitas)

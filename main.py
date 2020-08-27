@@ -62,6 +62,10 @@ class MT:
         else:
             self.fitas[fita][index] = simbolo
 
+    def escreve_fita(self, i: Instrucao):
+        self.add_valor(i.fita, i.simbolo)
+        self.move_index(i.move, i.fita)
+
     def retorna_index(self, fita):
         if fita == 'X':
             return self.indexX

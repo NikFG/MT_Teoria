@@ -1,4 +1,5 @@
 import re
+import sys
 
 pattern = re.compile('[a-z]+')
 
@@ -76,9 +77,49 @@ class MT:
 
 
 if __name__ == '__main__':
-    entrada = 'abcdefa'
+    options = sys.argv[1]
+    stepParameter = 0
+    logfile = ''
+    file = ''
+    entrada = ''
+
+    # • –step <n> Executa n computações e para, mostrando o conteúdo das três fitas, então reabre
+    # o prompt para ler novo valor para <n> antes de continuar a simulação. Caso seja fornecido
+    # o valor 0 para n a simulação termina imediatamente, caso seja fornecido um valor negativo o
+    # programa considera a opção –resume.
+    # • –resume Executa o programa até o fim, mostra o conteúdo das três fitas e o resultado do
+    # reconhecimento: ACEITA ou REJEITA. Essa é a opção padrão e será considerada se nenhuma
+    # opção –step for fornecida.
+    # • –debug <arquivo log> A simulação produz um relatório mostrando por linha as instruções
+    # executadas, as entradas e saídas dos blocos.
+    # • –help Exibe mensagem explicando o formato da linha de comando.
+
+    if options == '-step':
+        stepParameter = int(sys.argv[2])
+        file = sys.argv[3]
+        entrada = sys.argv[4]
+        if stepParameter == 0:
+            print("Insira um valor válido para <n>")
+            exit(-1)
+        ##call to step function
+    elif options == '-debug':
+        logfile = sys.argv[2]
+        file = sys.argv[3]
+        entrada = sys.argv[4]
+    elif options == '-resume':
+        file = sys.argv[2]
+        entrada = sys.argv[3]
+    elif options == '-help':
+        print("simuladorMT <opções> <arquivo> <entrada>")
+        exit(0)
+    else:
+        print("Digite uma entrada válida para a MT, em caso de dúvidas, digite '-help'")
+        exit(1)
+
     contComputacao = 0
+
     fita_x = []
+
     for e in entrada:
         if e == ';':
             break
@@ -89,7 +130,7 @@ if __name__ == '__main__':
     fim_aceita = -1
     fim_rejeita = -1
     alias = []
-    with open('teste.mt') as f:
+    with open(file) as f:
         nome_transicao = ''
         for linha in f.readlines():
             if linha.strip() == '':

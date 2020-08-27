@@ -32,6 +32,13 @@ class MT:
         'Z': []
     }
 
+    def __init__(self, fitaX):
+        self.fitas['X'] = fitaX
+
+    def __str__(self) -> str:
+        return 'fitas: {}, cabeçoteX: {}, cabeçoteY: {}, cabeçoteZ: {}'.format(self.fitas, self.indexX, self.indexY,
+                                                                               self.indexZ)
+
     def move_index(self, sentido: chr, index: chr):
         sinal = self.escolhe_sentido(sentido)
         if index == 'X':
@@ -40,10 +47,6 @@ class MT:
             self.indexY += sinal
         else:
             self.indexZ += sinal
-
-    def __str__(self) -> str:
-        return 'fitas: {}, cabeçoteX: {}, cabeçoteY: {}, cabeçoteZ: {}'.format(self.fitas, self.indexX, self.indexY,
-                                                                               self.indexZ)
 
     def escolhe_sentido(self, sentido) -> int:
         if sentido == 'd':

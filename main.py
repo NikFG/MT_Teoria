@@ -76,9 +76,19 @@ class MT:
 
 
 if __name__ == '__main__':
-    mt = MT()
-    f = open('teste.mt')
-    for linha in f.readlines():
+    entrada = 'abcdefa'
+    contComputacao = 0
+    fita_x = []
+    for e in entrada:
+        if e == ';':
+            break
+        fita_x.append(e)
+    mt = MT(fita_x)
+    lista_transicao = {}
+    estado_atual = -1
+    fim_aceita = -1
+    fim_rejeita = -1
+    alias = []
         l = linha.strip().split(' - - ')
         l0, l1 = l[0].split(' '), l[1].split(' ')
         try:

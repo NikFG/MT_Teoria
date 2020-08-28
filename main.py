@@ -47,12 +47,22 @@ class MT:
 
     def move_index(self, sentido: chr, index: chr):
         sinal = self.escolhe_sentido(sentido)
+        indexAux = 0
         if index == 'X':
             self.indexX += sinal
+            indexAux = self.indexX
         elif index == 'Y':
             self.indexY += sinal
+            indexAux = self.indexY
         else:
             self.indexZ += sinal
+            indexAux = self.indexZ
+        if indexAux < 0 and sentido == 'e':
+            fita_branco = []
+            self.soma_negativo(index, abs(indexAux))
+            for i in range(0, abs(indexAux)):
+                fita_branco.append('_')
+            self.fitas[index] = fita_branco + self.fitas[index]
 
     def escolhe_sentido(self, sentido) -> int:
         if sentido == 'd':
@@ -63,6 +73,7 @@ class MT:
 
     def add_valor(self, fita, simbolo):
         index = self.retorna_index(fita)
+
         if len(self.fitas[fita]) <= index:
             self.fitas[fita].append(simbolo)
         else:

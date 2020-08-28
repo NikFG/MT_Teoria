@@ -221,6 +221,9 @@ if __name__ == '__main__':
             lado_d = lados[l][1]
             aux = mt.fitas.get(lado_e.fita)[mt.retorna_index(lado_e.fita)]
             aux2 = lado_e.simbolo
+            if (aux not in alias or aux2 not in alias) and (aux != '*' and aux2 != '*'):
+                print('Caracter inválido')
+                exit(-1)
             if aux == aux2 or aux2 == '*':
                 mt.move_index(lado_e.move, lado_e.fita)
                 mt.escreve_fita(lado_d)

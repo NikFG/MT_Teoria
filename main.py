@@ -174,9 +174,14 @@ if __name__ == '__main__':
                 if not pattern.fullmatch(aliasSplited[0]):
                     print('PADRÃO DE ALIAS NÃO ACEITO')
                     exit(-1)
-                aliasAux = aliasSplited[2]
-                for al in aliasAux:
+
+                for al in aliasSplited[2]:
                     alias.append(al)
+
+                for fx in fita_x:
+                    if fx not in alias:
+                        print('Caracter {} não está nos aliases'.format(fx))
+                        exit(-1)
                 continue
             elif linha.__contains__('aceita'):
                 fim_aceita = int(linha.strip().split(' ')[0])

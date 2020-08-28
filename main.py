@@ -74,15 +74,24 @@ class MT:
 
     def retorna_index(self, fita):
         if fita == 'X':
-            return self.indexX
+            return self.indexX + self.negativoX
         elif fita == 'Y':
-            return self.indexY
+            return self.indexY + self.negativoY
         else:
-            return self.indexZ
+            return self.indexZ + self.negativoZ
+
+    def soma_negativo(self, fita, valor: int):
+        if fita == 'X':
+            self.negativoX += valor
+        elif fita == 'Y':
+            self.negativoY += valor
+        else:
+            self.negativoZ += valor
 
 
 if __name__ == '__main__':
-    options = sys.argv[1]
+    # options = sys.argv[1]
+    options = '-resume'
     stepParameter = 0
     logfile = ''
     file = ''

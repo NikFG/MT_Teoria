@@ -27,6 +27,11 @@ class MT:
     indexX = 0
     indexY = 0
     indexZ = 0
+
+    negativoX = 0
+    negativoY = 0
+    negativoZ = 0
+
     fitas = {
         'X': [],
         'Y': [],

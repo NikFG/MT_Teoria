@@ -125,7 +125,7 @@ if __name__ == '__main__':
         if stepParameter == 0:
             print("Insira um valor válido para <n>")
             exit(-1)
-        ##call to step function
+    # call to step function
     elif options == '-debug':
         logfile = sys.argv[2]
         file = sys.argv[3]
@@ -170,7 +170,11 @@ if __name__ == '__main__':
                 estado_atual = int(linhaAux[-1])
                 continue
             if linha.__contains__('$'):
-                aliasAux = linha.strip().replace('\'', '').replace('\"', '').split(' ')[2]
+                aliasSplited = linha.strip().replace('\'', '').replace('\"', '').split(' ')
+                if not pattern.fullmatch(aliasSplited[0]):
+                    print('PADRÃO DE ALIAS NÃO ACEITO')
+                    exit(-1)
+                aliasAux = aliasSplited[2]
                 for al in aliasAux:
                     alias.append(al)
                 continue

@@ -78,7 +78,8 @@ class MT:
             self.fitas[fita][index] = simbolo
 
     def escreve_fita(self, i: Instrucao):
-        self.add_valor(i.fita, i.simbolo)
+        if i.simbolo != '*':
+            self.add_valor(i.fita, i.simbolo)
         self.move_index(i.move, i.fita)
 
     def retorna_index(self, fita):
@@ -216,14 +217,16 @@ if __name__ == '__main__':
             lado_d = lados[l][1]
             aux = mt.fitas.get(lado_e.fita)[mt.retorna_index(lado_e.fita)]
             aux2 = lado_e.simbolo
-            if aux == aux2:
+            if aux == aux2 or aux2 == '*':
                 mt.move_index(lado_e.move, lado_e.fita)
                 mt.escreve_fita(lado_d)
-                estado_atual = lado_d.estado
+                if lado_d.estado != '*':
+                    estado_atual = lado_d.estado
                 break
             elif l + 1 not in range(0, len(lados)):
                 continua = False
                 print('REJEITA')
-                break
+                exit()
     print(lista_transicao['copiaX'])
     print(mt.fitas)
+    print('ACEITA')

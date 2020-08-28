@@ -1,7 +1,7 @@
 import re
 import sys
 
-pattern = re.compile('[a-z]+')
+pattern = re.compile('\$[a-z]')
 
 
 class Instrucao:

@@ -223,15 +223,26 @@ if __name__ == '__main__':
             continua = False
             break
 
-        for a in lista_transicao['main']:
+        for a in lista_transicao[ordem_execucao[-1]]:
             if a[0].estado == estado_atual:
                 lados.append(a)
 
         for l in range(0, len(lados)):
             lado_e = lados[l][0]
             lado_d = lados[l][1]
+            if lado_e.funcao == 'retorne' and lado_d.funcao == 'retorne':
+                ordem_execucao.pop()
+                estado_atual = lista_retorna[-1]
+                lista_retorna.pop()
+                break
+            if lado_e.funcao != lado_d.funcao:
+                ordem_execucao.append(lado_d.funcao)
+                lista_retorna.append(lado_d.estado)
+                estado_atual = estados_iniciais[ordem_execucao[-1]]
+                break
             aux = mt.fitas.get(lado_e.fita)[mt.retorna_index(lado_e.fita)]
             aux2 = lado_e.simbolo
+
             if (aux not in alias or aux2 not in alias) and (aux != '*' and aux2 != '*'):
                 print('Caracter inválido')
                 exit(-1)

@@ -275,15 +275,25 @@ if __name__ == '__main__':
                         estado_atual = lado_d.estado
 
                     if lado_d.break_point:
+                        print("\nSimulador de Máquina de Turing Suave ver 1.0")
+                        print("Desenvolvido como trabalho prático para a disciplina de Teoria da Computação")
+                        print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
+                        print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
                         print("---- breakpoint ----")
+                        print(mt.fitas)
+                        print("_____________________________________________________________________________________________")
                         opcao = int(input('Opção ? ( 0=termina , −1=resume ) : '))
                         if opcao == 0:
-                            print(mt.fitas)
                             exit(0)
                         elif opcao == -1:
                             stepParameter = 0
 
                     if options == '-resume' and contComputacao == stepParameter:
+                        print("\nSimulador de Máquina de Turing Suave ver 1.0")
+                        print("Desenvolvido como trabalho prático para a disciplina de Teoria da Computação")
+                        print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
+                        print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
+                        print("_____________________________________________________________________________________________")
                         opcao = int(input(
                             'Já foram executadas '+str(contComputacao)+' computações. Deseja continuar ? ( 0=termina , −1=resume ) : '))
                         if opcao == 0:
@@ -293,6 +303,12 @@ if __name__ == '__main__':
                             stepParameter += 1000
                     break
             elif options == '-step' and contComputacao == stepParameter:
+                print("\nSimulador de Máquina de Turing Suave ver 1.0")
+                print("Desenvolvido como trabalho prático para a disciplina de Teoria da Computação")
+                print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
+                print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
+                print(mt.fitas)
+                print("_____________________________________________________________________________________________")
                 opcao = int(input('Opção ? ( n=passos , 0=termina , −1=resume ) : '))
                 if opcao == 0:
                     print(mt.fitas)
@@ -303,12 +319,26 @@ if __name__ == '__main__':
                     stepParameter += opcao
             elif l + 1 not in range(0, len(lados)):
                 continua = False
+                print("\nSimulador de Máquina de Turing Suave ver 1.0")
+                print("Desenvolvido como trabalho prático para a disciplina de Teoria da Computação")
+                print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
+                print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
                 print('REJEITA')
+                print("_____________________________________________________________________________________________")
+                print('FIM DA SIMULAÇÃO.')
                 exit()
 
+    print("\nSimulador de Máquina de Turing Suave ver 1.0")
+    print("Desenvolvido como trabalho prático para a disciplina de Teoria da Computação")
+    print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
+    print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
     if options == '-debug':
         arquivoLog.close()
         arquivoLogRead = open(logfile, "r")
         print(arquivoLogRead.read())
-    print(mt.fitas)
-    print('ACEITA')
+    else:
+        print('ACEITA')
+        print("_____________________________________________________________________________________________")
+        print(mt.fitas)
+        print("_____________________________________________________________________________________________")
+        print('FIM DA SIMULAÇÃO.')

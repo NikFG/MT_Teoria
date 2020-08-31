@@ -221,12 +221,24 @@ if __name__ == '__main__':
             if (aux not in alias or aux2 not in alias) and (aux != '*' and aux2 != '*'):
                 print('Caracter inválido')
                 exit(-1)
-            if aux == aux2 or aux2 == '*':
-                mt.move_index(lado_e.move, lado_e.fita)
-                mt.escreve_fita(lado_d)
-                if lado_d.estado != '*':
-                    estado_atual = lado_d.estado
-                break
+            if options != '-step' or contComputacao != stepParameter:
+                if aux == aux2 or aux2 == '*':
+                    contComputacao += 1
+                    mt.move_index(lado_e.move, lado_e.fita)
+                    mt.escreve_fita(lado_d)
+                    if lado_d.estado != '*':
+                        estado_atual = lado_d.estado
+                    break
+            elif options == '-step' and contComputacao == stepParameter:
+                opcao = int(input('Opção ? ( n=passos , 0=termina , −1=resume ) : '))
+                if opcao == 0:
+                    print(lista_transicao['copiaX'])
+                    print(mt.fitas)
+                    exit(0)
+                elif opcao == -1:
+                    stepParameter = 0
+                else:
+                    stepParameter += opcao
             elif l + 1 not in range(0, len(lados)):
                 continua = False
                 print('REJEITA')

@@ -109,7 +109,6 @@ if __name__ == '__main__':
     logfile = ''
     file = ''
     entrada = ''
-    arquivoLog = ''
 
     if options == '-step':
         stepParameter = int(sys.argv[2])
@@ -136,7 +135,7 @@ if __name__ == '__main__':
 
     contComputacao = 0
     if options == '-debug':
-        arquivoLog = open(logfile, 'w')
+        arquivoLog = open(logfile, "w")
     fita_x = []
 
     for e in entrada:
@@ -234,13 +233,16 @@ if __name__ == '__main__':
             lado_d = lados[l][1]
             if lado_e.funcao == 'retorne' and lado_d.funcao == 'retorne':
                 if options == '-debug':
-                    arquivoLog.write("{}: {} retorne\n".format(str(ordem_execucao[-1]), lado_e.estado ))
+                    linhaParaEscrever = str(ordem_execucao[-1]) + " : " + str(lado_e.estado) + " retorne\n"
+                    teste = arquivoLog.write(linhaParaEscrever)
                 ordem_execucao.pop()
                 estado_atual = lista_retorna[-1]
                 lista_retorna.pop()
                 break
             if lado_e.funcao != lado_d.funcao:
-                arquivoLog.write("{}: {} {} {}\n".format(str(ordem_execucao[-1]), lado_e.estado, lado_d.funcao, lado_d.estado))
+                if options == '-debug':
+                    linhaParaEscrever = str(ordem_execucao[-1]) + " : " + str(lado_e.estado) + " " + str(lado_d.funcao) + " " + str(lado_d.estado) + "\n"
+                    teste = arquivoLog.write(linhaParaEscrever)
                 ordem_execucao.append(lado_d.funcao)
                 lista_retorna.append(lado_d.estado)
                 estado_atual = estados_iniciais[ordem_execucao[-1]]
@@ -255,7 +257,7 @@ if __name__ == '__main__':
                 if aux == aux2 or aux2 == '*':
                     contComputacao += 1
                     if options == '-debug':
-                        arquivoLog.write("{}: {} --- {}\n".format(str(ordem_execucao[-1]), lado_e, lado_d))
+                        teste = arquivoLog.write("{}: {} {} {} {} --- {} {} {} {}\n".format(str(ordem_execucao[-1]), lado_e.estado, lado_e.simbolo, lado_e.fita, lado_e.move, lado_d.estado, lado_d.simbolo, lado_d.fita, lado_d.move))
                     mt.move_index(lado_e.move, lado_e.fita)
                     mt.escreve_fita(lado_d)
                     if lado_d.estado != '*':
@@ -276,6 +278,9 @@ if __name__ == '__main__':
                 print('REJEITA')
                 exit()
 
-    arquivoLog.close()
+    if options == '-debug':
+        arquivoLog.close()
+        arquivoLogRead = open(logfile, "r")
+        print(arquivoLogRead.read())
     print(mt.fitas)
     print('ACEITA')

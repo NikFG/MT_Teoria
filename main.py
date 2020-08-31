@@ -56,7 +56,7 @@ class MT:
         else:
             self.indexZ += sinal
             indexAux = self.indexZ
-        print(len(self.fitas[index]))
+
         if indexAux >= len(self.fitas[index]) and sentido == 'd':
             self.fitas[index] = self.fitas[index] + ['_']
         if indexAux < 0 and sentido == 'e':

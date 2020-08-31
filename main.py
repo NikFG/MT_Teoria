@@ -36,9 +36,6 @@ class MT:
         'Z': []
     }
 
-    def __init__(self, fitaX):
-        self.fitas['X'] = fitaX
-
     def __str__(self) -> str:
         return 'fitas: {}, cabeçoteX: {}, cabeçoteY: {}, cabeçoteZ: {}'.format(self.fitas, self.indexX, self.indexY,
                                                                                self.indexZ)
@@ -145,10 +142,8 @@ if __name__ == '__main__':
     fita_x = []
 
     for e in entrada:
-        if e == ';':
-            break
         fita_x.append(e)
-    mt = MT(fita_x)
+    mt = MT()
     lista_transicao = {}
     estado_atual = -1
     fim_aceita = -1

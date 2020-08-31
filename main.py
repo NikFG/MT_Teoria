@@ -11,7 +11,7 @@ class Instrucao:
     move: chr
     funcao: str
 
-    def __init__(self, estado, fita, simbolo: str, move, funcao):
+    def __init__(self, funcao, estado, fita, simbolo: str, move):
         self.estado = estado
         self.fita = fita
         self.simbolo = simbolo

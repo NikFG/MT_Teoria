@@ -211,21 +211,17 @@ if __name__ == '__main__':
                         a = Instrucao('retorne', int(l[0]), '', '', 'i', break_point)
                         b = Instrucao('retorne', -1, '', '', 'i', break_point)
                         lista_transicao[nome_transicao].append((a, b))
-                    else:
-                        if l[1] == 'pare':
-                            print('fitaX: {}'.format(mt.fitas['X']))
-                            print('fitaY: {}'.format(mt.fitas['Y']))
-                            print('fitaZ: {}'.format(mt.fitas['Z']))
-                            print(
-                                "_____________________________________________________________________________________________")
-                            print('ACEITA')
-                            print(
-                                "_____________________________________________________________________________________________")
-                            exit(0)
-
-                        a = Instrucao(nome_transicao, int(l[0]), '', '', 'i', break_point)
-                        b = Instrucao(l[1], int(l[2]), '', '', 'i', break_point)
+                        continue
+                    elif l[1] == 'pare':
+                        a = Instrucao('pare', int(l[0]), '', '', 'i', break_point)
+                        print(l[0])
+                        b = Instrucao('pare', -1, '', '', 'i', break_point)
                         lista_transicao[nome_transicao].append((a, b))
+                        continue
+
+                    a = Instrucao(nome_transicao, int(l[0]), '', '', 'i', break_point)
+                    b = Instrucao(l[1], int(l[2]), '', '', 'i', break_point)
+                    lista_transicao[nome_transicao].append((a, b))
                     continue
 
                 l0, l1 = l[0].split(' '), l[1].split(' ')
@@ -250,6 +246,18 @@ if __name__ == '__main__':
         for l in range(0, len(lados)):
             lado_e = lados[l][0]
             lado_d = lados[l][1]
+
+            print(lado_e.funcao)
+            if lado_e.funcao == 'pare':
+                print('fitaX: {}'.format(mt.fitas['X']))
+                print('fitaY: {}'.format(mt.fitas['Y']))
+                print('fitaZ: {}'.format(mt.fitas['Z']))
+                print("_______________________________"
+                      "______________________________________________________________")
+                print('PARE')
+                print("____________________"
+                      "_________________________________________________________________________")
+                exit(0)
             if lado_e.funcao == 'retorne' and lado_d.funcao == 'retorne':
                 if options == '-debug':
                     linhaParaEscrever = str(ordem_execucao[-1]) + " : " + str(lado_e.estado) + " retorne\n"

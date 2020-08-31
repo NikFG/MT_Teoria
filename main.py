@@ -146,6 +146,7 @@ if __name__ == '__main__':
         fita_x.append(e)
     mt = MT()
     lista_transicao = {}
+    estados_iniciais = {}
     estado_atual = -1
     fim_aceita = -1
     fim_rejeita = -1
@@ -161,9 +162,12 @@ if __name__ == '__main__':
                     continue
             if linha.__contains__('inicio'):
                 linhaAux = linha.strip().split(' ')
+
                 nome_transicao = linhaAux[1]
                 lista_transicao[nome_transicao] = []
-                estado_atual = int(linhaAux[-1])
+                estados_iniciais[nome_transicao] = int(linhaAux[-1])
+                if nome_transicao == 'main':
+                    estado_atual = int(linhaAux[-1])
                 continue
             if linha.__contains__('$'):
                 aliasSplited = linha.strip().replace('\'', '').replace('\"', '').split(' ')

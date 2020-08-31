@@ -210,8 +210,14 @@ if __name__ == '__main__':
                         lista_transicao[nome_transicao].append((a, b))
                     else:
                         if l[1] == 'pare':
-                            print(mt.fitas)
+                            print('fitaX: {}'.format(mt.fitas['X']))
+                            print('fitaY: {}'.format(mt.fitas['Y']))
+                            print('fitaZ: {}'.format(mt.fitas['Z']))
+                            print(
+                                "_____________________________________________________________________________________________")
                             print('ACEITA')
+                            print(
+                                "_____________________________________________________________________________________________")
                             exit(0)
 
                         a = Instrucao(nome_transicao, int(l[0]), '', '', 'i', break_point)
@@ -280,7 +286,9 @@ if __name__ == '__main__':
                         print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
                         print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
                         print("---- breakpoint ----")
-                        print(mt.fitas)
+                        print('fitaX: {}'.format(mt.fitas['X']))
+                        print('fitaY: {}'.format(mt.fitas['Y']))
+                        print('fitaZ: {}'.format(mt.fitas['Z']))
                         print("_____________________________________________________________________________________________")
                         opcao = int(input('Opção ? ( 0=termina , −1=resume ) : '))
                         if opcao == 0:
@@ -297,7 +305,9 @@ if __name__ == '__main__':
                         opcao = int(input(
                             'Já foram executadas '+str(contComputacao)+' computações. Deseja continuar ? ( 0=termina , −1=resume ) : '))
                         if opcao == 0:
-                            print(mt.fitas)
+                            print('fitaX: {}'.format(mt.fitas['X']))
+                            print('fitaY: {}'.format(mt.fitas['Y']))
+                            print('fitaZ: {}'.format(mt.fitas['Z']))
                             exit(0)
                         elif opcao == -1:
                             stepParameter += 1000
@@ -307,11 +317,12 @@ if __name__ == '__main__':
                 print("Desenvolvido como trabalho prático para a disciplina de Teoria da Computação")
                 print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
                 print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
-                print(mt.fitas)
+                print('fitaX: {}'.format(mt.fitas['X']))
+                print('fitaY: {}'.format(mt.fitas['Y']))
+                print('fitaZ: {}'.format(mt.fitas['Z']))
                 print("_____________________________________________________________________________________________")
                 opcao = int(input('Opção ? ( n=passos , 0=termina , −1=resume ) : '))
                 if opcao == 0:
-                    print(mt.fitas)
                     exit(0)
                 elif opcao == -1:
                     stepParameter = 0
@@ -339,6 +350,8 @@ if __name__ == '__main__':
     else:
         print('ACEITA')
         print("_____________________________________________________________________________________________")
-        print(mt.fitas)
+        print('fitaX: {}'.format(mt.fitas['X']))
+        print('fitaY: {}'.format(mt.fitas['Y']))
+        print('fitaZ: {}'.format(mt.fitas['Z']))
         print("_____________________________________________________________________________________________")
         print('FIM DA SIMULAÇÃO.')

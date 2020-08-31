@@ -204,7 +204,7 @@ if __name__ == '__main__':
                             print(mt.fitas)
                             print('ACEITA')
                             exit(0)
-                            
+
                         a = Instrucao(nome_transicao, int(l[0]), '', '', 'i')
                         b = Instrucao(l[1], int(l[2]), '', '', 'i')
                         lista_transicao[nome_transicao].append((a, b))
@@ -233,11 +233,14 @@ if __name__ == '__main__':
             lado_e = lados[l][0]
             lado_d = lados[l][1]
             if lado_e.funcao == 'retorne' and lado_d.funcao == 'retorne':
+                if options == '-debug':
+                    arquivoLog.write("{}: {} retorne\n".format(str(ordem_execucao[-1]), lado_e.estado ))
                 ordem_execucao.pop()
                 estado_atual = lista_retorna[-1]
                 lista_retorna.pop()
                 break
             if lado_e.funcao != lado_d.funcao:
+                arquivoLog.write("{}: {} {} {}\n".format(str(ordem_execucao[-1]), lado_e.estado, lado_d.funcao, lado_d.estado))
                 ordem_execucao.append(lado_d.funcao)
                 lista_retorna.append(lado_d.estado)
                 estado_atual = estados_iniciais[ordem_execucao[-1]]
@@ -246,11 +249,13 @@ if __name__ == '__main__':
             aux2 = lado_e.simbolo
 
             if (aux not in alias or aux2 not in alias) and (aux != '*' and aux2 != '*'):
-                print('Caracter inválido')
+                print('Caractér inválido')
                 exit(-1)
             if options != '-step' or contComputacao != stepParameter:
                 if aux == aux2 or aux2 == '*':
                     contComputacao += 1
+                    if options == '-debug':
+                        arquivoLog.write("{}: {} --- {}\n".format(str(ordem_execucao[-1]), lado_e, lado_d))
                     mt.move_index(lado_e.move, lado_e.fita)
                     mt.escreve_fita(lado_d)
                     if lado_d.estado != '*':
@@ -270,6 +275,7 @@ if __name__ == '__main__':
                 continua = False
                 print('REJEITA')
                 exit()
-    print(lista_transicao['copiaX'])
+
+    arquivoLog.close()
     print(mt.fitas)
     print('ACEITA')

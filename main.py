@@ -198,18 +198,23 @@ if __name__ == '__main__':
                     l = linha.strip().split(' ')
 
                 if not l[1].__contains__(' '):
-                    lista_transicao[l[1]] = []
+                    if l[1] == 'retorne':
+                        a = Instrucao('retorne', int(l[0]), '', '', 'i')
+                        b = Instrucao('retorne', -1, '', '', 'i')
+                        lista_transicao[nome_transicao].append((a, b))
+                    else:
+                        a = Instrucao(nome_transicao, int(l[0]), '', '', 'i')
+                        b = Instrucao(l[1], int(l[2]), '', '', 'i')
+                        lista_transicao[nome_transicao].append((a, b))
                     continue
+
                 l0, l1 = l[0].split(' '), l[1].split(' ')
-                try:
-                    a = Instrucao(int(l0[0]), l0[1], l0[2], l0[3])
-                    b = Instrucao(int(l1[0]), l1[1], l1[2], l1[3])
-                    lista_transicao['main'].append((a, b))
-                except Exception as e:
-                    print(e)
-                    break
-    for a in lista_transicao['main']:
-        print("{} -- {}".format(a[0], a[1]))
+                a = Instrucao(nome_transicao, int(l0[0]), l0[1], l0[2], l0[3])
+                b = Instrucao(nome_transicao, int(l1[0]), l1[1], l1[2], l1[3])
+                lista_transicao[nome_transicao].append((a, b))
+
+    ordem_execucao = ['main']
+    lista_retorna = []
     continua = True
     while continua:
         lados = []

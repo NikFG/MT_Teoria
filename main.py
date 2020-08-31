@@ -200,6 +200,11 @@ if __name__ == '__main__':
                         b = Instrucao('retorne', -1, '', '', 'i')
                         lista_transicao[nome_transicao].append((a, b))
                     else:
+                        if l[1] == 'pare':
+                            print(mt.fitas)
+                            print('ACEITA')
+                            exit(0)
+                            
                         a = Instrucao(nome_transicao, int(l[0]), '', '', 'i')
                         b = Instrucao(l[1], int(l[2]), '', '', 'i')
                         lista_transicao[nome_transicao].append((a, b))

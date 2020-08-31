@@ -9,16 +9,18 @@ class Instrucao:
     fita: chr
     simbolo: chr
     move: chr
+    funcao: str
 
-    def __init__(self, estado, fita, simbolo: str, move):
+    def __init__(self, estado, fita, simbolo: str, move, funcao):
         self.estado = estado
         self.fita = fita
         self.simbolo = simbolo
         self.move = move
+        self.funcao = funcao
 
     def __str__(self) -> str:
-        return 'estado: {}, fita: {}, simbolo: {}, move: {}'. \
-            format(str(self.estado), self.fita, self.simbolo, self.move)
+        return '{}: {} {} {} {}'. \
+            format(self.funcao, str(self.estado), self.simbolo, self.fita, self.move)
 
 
 class MT:
@@ -98,23 +100,16 @@ class MT:
 
 
 if __name__ == '__main__':
-    # options = sys.argv[1]
-    options = '-resume'
+    options = ''
+    if sys.argv[1] != '-step' and sys.argv[1] != '-debug' and sys.argv[1] != '-help':
+        options = '-resume'
+    else:
+        options = sys.argv[1]
     stepParameter = 0
     logfile = ''
     file = ''
     entrada = ''
-
-    # • –step <n> Executa n computações e para, mostrando o conteúdo das três fitas, então reabre
-    # o prompt para ler novo valor para <n> antes de continuar a simulação. Caso seja fornecido
-    # o valor 0 para n a simulação termina imediatamente, caso seja fornecido um valor negativo o
-    # programa considera a opção –resume.
-    # • –resume Executa o programa até o fim, mostra o conteúdo das três fitas e o resultado do
-    # reconhecimento: ACEITA ou REJEITA. Essa é a opção padrão e será considerada se nenhuma
-    # opção –step for fornecida.
-    # • –debug <arquivo log> A simulação produz um relatório mostrando por linha as instruções
-    # executadas, as entradas e saídas dos blocos.
-    # • –help Exibe mensagem explicando o formato da linha de comando.
+    arquivoLog = ''
 
     if options == '-step':
         stepParameter = int(sys.argv[2])
@@ -123,7 +118,6 @@ if __name__ == '__main__':
         if stepParameter == 0:
             print("Insira um valor válido para <n>")
             exit(-1)
-    # call to step function
     elif options == '-debug':
         logfile = sys.argv[2]
         file = sys.argv[3]
@@ -132,14 +126,17 @@ if __name__ == '__main__':
         file = sys.argv[2]
         entrada = sys.argv[3]
     elif options == '-help':
-        print("simuladorMT <opções> <arquivo> <entrada>")
+        print("Exemplo de entrada válida:")
+        print("main.py <opções> <arquivo> <entrada>")
+        print("Opções:\n'–step <n>': Executa <n> computações e para, onde <n> é a quantidade de computações\n'–resume': Executa o programa até o fim\n'–debug <arquivo log>' A simulação produz um relatório mostrando por linha as instruções executadas, as entradas e saídas dos blocos")
         exit(0)
     else:
         print("Digite uma entrada válida para a MT, em caso de dúvidas, digite '-help'")
         exit(1)
 
     contComputacao = 0
-
+    if options == '-debug':
+        arquivoLog = open(logfile, 'w')
     fita_x = []
 
     for e in entrada:
@@ -246,12 +243,24 @@ if __name__ == '__main__':
             if (aux not in alias or aux2 not in alias) and (aux != '*' and aux2 != '*'):
                 print('Caracter inválido')
                 exit(-1)
-            if aux == aux2 or aux2 == '*':
-                mt.move_index(lado_e.move, lado_e.fita)
-                mt.escreve_fita(lado_d)
-                if lado_d.estado != '*':
-                    estado_atual = lado_d.estado
-                break
+            if options != '-step' or contComputacao != stepParameter:
+                if aux == aux2 or aux2 == '*':
+                    contComputacao += 1
+                    mt.move_index(lado_e.move, lado_e.fita)
+                    mt.escreve_fita(lado_d)
+                    if lado_d.estado != '*':
+                        estado_atual = lado_d.estado
+                    break
+            elif options == '-step' and contComputacao == stepParameter:
+                opcao = int(input('Opção ? ( n=passos , 0=termina , −1=resume ) : '))
+                if opcao == 0:
+                    print(lista_transicao['copiaX'])
+                    print(mt.fitas)
+                    exit(0)
+                elif opcao == -1:
+                    stepParameter = 0
+                else:
+                    stepParameter += opcao
             elif l + 1 not in range(0, len(lados)):
                 continua = False
                 print('REJEITA')

@@ -214,7 +214,6 @@ if __name__ == '__main__':
                         continue
                     elif l[1] == 'pare':
                         a = Instrucao('pare', int(l[0]), '', '', 'i', break_point)
-                        print(l[0])
                         b = Instrucao('pare', -1, '', '', 'i', break_point)
                         lista_transicao[nome_transicao].append((a, b))
                         continue
@@ -246,8 +245,6 @@ if __name__ == '__main__':
         for l in range(0, len(lados)):
             lado_e = lados[l][0]
             lado_d = lados[l][1]
-
-            print(lado_e.funcao)
             if lado_e.funcao == 'pare':
                 print('fitaX: {}'.format(mt.fitas['X']))
                 print('fitaY: {}'.format(mt.fitas['Y']))
@@ -268,7 +265,8 @@ if __name__ == '__main__':
                 break
             if lado_e.funcao != lado_d.funcao:
                 if options == '-debug':
-                    linhaParaEscrever = str(ordem_execucao[-1]) + " : " + str(lado_e.estado) + " " + str(lado_d.funcao) + " " + str(lado_d.estado) + "\n"
+                    linhaParaEscrever = str(ordem_execucao[-1]) + " : " + str(lado_e.estado) + " " + str(
+                        lado_d.funcao) + " " + str(lado_d.estado) + "\n"
                     teste = arquivoLog.write(linhaParaEscrever)
                 ordem_execucao.append(lado_d.funcao)
                 lista_retorna.append(lado_d.estado)
@@ -277,15 +275,19 @@ if __name__ == '__main__':
             aux = mt.fitas.get(lado_e.fita)[mt.retorna_index(lado_e.fita)]
             aux2 = lado_e.simbolo
 
-            if (aux not in alias or aux2 not in alias) and (aux != '*' and aux2 != '*'):
-                print('Caractér inválido')
+            if (aux not in alias or aux2 not in alias) and (aux != '*' and aux2 != '*') and (aux != '_' and aux2 != '_'):
+                print('Caracter inválido')
                 exit(-1)
             if options != '-step' or contComputacao != stepParameter:
 
                 if aux == aux2 or aux2 == '*':
                     contComputacao += 1
                     if options == '-debug':
-                        teste = arquivoLog.write("{}: {} {} {} {} --- {} {} {} {}\n".format(str(ordem_execucao[-1]), lado_e.estado, lado_e.simbolo, lado_e.fita, lado_e.move, lado_d.estado, lado_d.simbolo, lado_d.fita, lado_d.move))
+                        teste = arquivoLog.write(
+                            "{}: {} {} {} {} --- {} {} {} {}\n".format(str(ordem_execucao[-1]), lado_e.estado,
+                                                                       lado_e.simbolo, lado_e.fita, lado_e.move,
+                                                                       lado_d.estado, lado_d.simbolo, lado_d.fita,
+                                                                       lado_d.move))
                     mt.move_index(lado_e.move, lado_e.fita)
                     mt.escreve_fita(lado_d)
                     if lado_d.estado != '*':
@@ -300,21 +302,39 @@ if __name__ == '__main__':
                         print('fitaX: {}'.format(mt.fitas['X']))
                         print('fitaY: {}'.format(mt.fitas['Y']))
                         print('fitaZ: {}'.format(mt.fitas['Z']))
-                        print("_____________________________________________________________________________________________")
+                        print(
+                            "_____________________________________________________________________________________________")
                         opcao = int(input('Opção ? ( 0=termina , −1=resume ) : '))
                         if opcao == 0:
                             exit(0)
                         elif opcao == -1:
                             stepParameter = 0
-
+                    break
+                elif l + 1 not in range(0, len(lados)):
+                    continua = False
+                    print("\nSimulador de Máquina de Turing Suave ver 1.0")
+                    print("Desenvolvido como trabalho prático para a disciplina de Teoria da Computação")
+                    print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
+                    print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
+                    print('REJEITA')
+                    print('fitaX: {}'.format(mt.fitas['X']))
+                    print('fitaY: {}'.format(mt.fitas['Y']))
+                    print('fitaZ: {}'.format(mt.fitas['Z']))
+                    print(mt.indexX)
+                    print(
+                        "_____________________________________________________________________________________________")
+                    print('FIM DA SIMULAÇÃO.')
+                    exit()
                     if options == '-resume' and contComputacao == stepParameter:
                         print("\nSimulador de Máquina de Turing Suave ver 1.0")
                         print("Desenvolvido como trabalho prático para a disciplina de Teoria da Computação")
                         print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
                         print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
-                        print("_____________________________________________________________________________________________")
+                        print(
+                            "_____________________________________________________________________________________________")
                         opcao = int(input(
-                            'Já foram executadas '+str(contComputacao)+' computações. Deseja continuar ? ( 0=termina , −1=resume ) : '))
+                            'Já foram executadas ' + str(
+                                contComputacao) + ' computações. Deseja continuar ? ( 0=termina , −1=resume ) : '))
                         if opcao == 0:
                             print('fitaX: {}'.format(mt.fitas['X']))
                             print('fitaY: {}'.format(mt.fitas['Y']))
@@ -339,16 +359,6 @@ if __name__ == '__main__':
                     stepParameter = 0
                 else:
                     stepParameter += opcao
-            elif l + 1 not in range(0, len(lados)):
-                continua = False
-                print("\nSimulador de Máquina de Turing Suave ver 1.0")
-                print("Desenvolvido como trabalho prático para a disciplina de Teoria da Computação")
-                print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
-                print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
-                print('REJEITA')
-                print("_____________________________________________________________________________________________")
-                print('FIM DA SIMULAÇÃO.')
-                exit()
 
     print("\nSimulador de Máquina de Turing Suave ver 1.0")
     print("Desenvolvido como trabalho prático para a disciplina de Teoria da Computação")

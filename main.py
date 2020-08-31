@@ -53,11 +53,12 @@ class MT:
             self.indexZ += sinal
             indexAux = self.indexZ
         if indexAux < 0 and sentido == 'e':
-            fita_branco = []
+            # fita_branco = []
             self.soma_negativo(index, abs(indexAux))
-            for i in range(0, abs(indexAux)):
-                fita_branco.append('_')
-            self.fitas[index] = fita_branco + self.fitas[index]
+
+            # for i in range(0, abs(indexAux)):
+            #     fita_branco.append('_')
+            self.fitas[index] = ['_'] + self.fitas[index]
 
     def escolhe_sentido(self, sentido) -> int:
         if sentido == 'd':

@@ -1,7 +1,7 @@
 import re
 import sys
 
-pattern = re.compile('[a-z]+')
+pattern = re.compile('\$[a-z]')
 
 
 class Instrucao:
@@ -12,8 +12,6 @@ class Instrucao:
     funcao: str
 
     def __init__(self, estado, fita, simbolo: str, move, funcao):
-        if not pattern.fullmatch(simbolo):
-            raise Exception("Rejeita")
         self.estado = estado
         self.fita = fita
         self.simbolo = simbolo
@@ -29,14 +27,16 @@ class MT:
     indexX = 0
     indexY = 0
     indexZ = 0
+
+    negativoX = 0
+    negativoY = 0
+    negativoZ = 0
+
     fitas = {
         'X': [],
         'Y': [],
         'Z': []
     }
-
-    def __init__(self, fitaX):
-        self.fitas['X'] = fitaX
 
     def __str__(self) -> str:
         return 'fitas: {}, cabeçoteX: {}, cabeçoteY: {}, cabeçoteZ: {}'.format(self.fitas, self.indexX, self.indexY,
@@ -44,12 +44,22 @@ class MT:
 
     def move_index(self, sentido: chr, index: chr):
         sinal = self.escolhe_sentido(sentido)
+        indexAux = 0
         if index == 'X':
             self.indexX += sinal
+            indexAux = self.indexX
         elif index == 'Y':
             self.indexY += sinal
+            indexAux = self.indexY
         else:
             self.indexZ += sinal
+            indexAux = self.indexZ
+        if indexAux < 0 and sentido == 'e':
+            fita_branco = []
+            self.soma_negativo(index, abs(indexAux))
+            for i in range(0, abs(indexAux)):
+                fita_branco.append('_')
+            self.fitas[index] = fita_branco + self.fitas[index]
 
     def escolhe_sentido(self, sentido) -> int:
         if sentido == 'd':
@@ -60,22 +70,32 @@ class MT:
 
     def add_valor(self, fita, simbolo):
         index = self.retorna_index(fita)
+
         if len(self.fitas[fita]) <= index:
             self.fitas[fita].append(simbolo)
         else:
             self.fitas[fita][index] = simbolo
 
     def escreve_fita(self, i: Instrucao):
-        self.add_valor(i.fita, i.simbolo)
+        if i.simbolo != '*':
+            self.add_valor(i.fita, i.simbolo)
         self.move_index(i.move, i.fita)
 
     def retorna_index(self, fita):
         if fita == 'X':
-            return self.indexX
+            return self.indexX + self.negativoX
         elif fita == 'Y':
-            return self.indexY
+            return self.indexY + self.negativoY
         else:
-            return self.indexZ
+            return self.indexZ + self.negativoZ
+
+    def soma_negativo(self, fita, valor: int):
+        if fita == 'X':
+            self.negativoX += valor
+        elif fita == 'Y':
+            self.negativoY += valor
+        else:
+            self.negativoZ += valor
 
 
 if __name__ == '__main__':
@@ -119,10 +139,8 @@ if __name__ == '__main__':
     fita_x = []
 
     for e in entrada:
-        if e == ';':
-            break
         fita_x.append(e)
-    mt = MT(fita_x)
+    mt = MT()
     lista_transicao = {}
     estado_atual = -1
     fim_aceita = -1
@@ -144,9 +162,19 @@ if __name__ == '__main__':
                 estado_atual = int(linhaAux[-1])
                 continue
             if linha.__contains__('$'):
-                aliasAux = linha.strip().replace('\'', '').replace('\"', '').split(' ')[2]
-                for al in aliasAux:
+                aliasSplited = linha.strip().replace('\'', '').replace('\"', '').split(' ')
+                if not pattern.fullmatch(aliasSplited[0]):
+                    print('PADRÃO DE ALIAS NÃO ACEITO')
+                    exit(-1)
+
+                for al in aliasSplited[2]:
                     alias.append(al)
+
+                for fx in fita_x:
+                    if fx not in alias:
+                        print('Caracter {} não está no alias'.format(fx))
+                        exit(-1)
+                mt.fitas['X'] = fita_x
                 continue
             elif linha.__contains__('aceita'):
                 fim_aceita = int(linha.strip().split(' ')[0])
@@ -190,28 +218,19 @@ if __name__ == '__main__':
             lado_d = lados[l][1]
             aux = mt.fitas.get(lado_e.fita)[mt.retorna_index(lado_e.fita)]
             aux2 = lado_e.simbolo
-            if options != '-step' or contComputacao != stepParameter :
-                if aux == aux2:
-                    contComputacao += 1
-                    mt.move_index(lado_e.move, lado_e.fita)
-                    mt.escreve_fita(lado_d)
+            if (aux not in alias or aux2 not in alias) and (aux != '*' and aux2 != '*'):
+                print('Caracter inválido')
+                exit(-1)
+            if aux == aux2 or aux2 == '*':
+                mt.move_index(lado_e.move, lado_e.fita)
+                mt.escreve_fita(lado_d)
+                if lado_d.estado != '*':
                     estado_atual = lado_d.estado
-                    break
-            elif options == '-step' and contComputacao == stepParameter :
-                opcao = int(input('Opção ? ( n=passos , 0=termina , −1=resume ) : '))
-                if opcao == 0:
-                    print(lista_transicao['copiaX'])
-                    print(mt.fitas)
-                    exit(0)
-                elif opcao == -1:
-                    stepParameter = 0
-                else:
-                    stepParameter += opcao
-
+                break
             elif l + 1 not in range(0, len(lados)):
                 continua = False
                 print('REJEITA')
-                break
-
+                exit()
     print(lista_transicao['copiaX'])
     print(mt.fitas)
+    print('ACEITA')

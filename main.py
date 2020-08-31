@@ -126,6 +126,7 @@ if __name__ == '__main__':
     elif options == '-resume':
         file = sys.argv[2]
         entrada = sys.argv[3]
+        stepParameter = 1000
     elif options == '-help':
         print("Exemplo de entrada válida:")
         print("main.py <opções> <arquivo> <entrada>")
@@ -263,6 +264,7 @@ if __name__ == '__main__':
                 print('Caractér inválido')
                 exit(-1)
             if options != '-step' or contComputacao != stepParameter:
+
                 if aux == aux2 or aux2 == '*':
                     contComputacao += 1
                     if options == '-debug':
@@ -280,6 +282,15 @@ if __name__ == '__main__':
                             exit(0)
                         elif opcao == -1:
                             stepParameter = 0
+
+                    if options == '-resume' and contComputacao == stepParameter:
+                        opcao = int(input(
+                            'Já foram executadas '+str(contComputacao)+' computações. Deseja continuar ? ( 0=termina , −1=resume ) : '))
+                        if opcao == 0:
+                            print(mt.fitas)
+                            exit(0)
+                        elif opcao == -1:
+                            stepParameter += 1000
                     break
             elif options == '-step' and contComputacao == stepParameter:
                 opcao = int(input('Opção ? ( n=passos , 0=termina , −1=resume ) : '))

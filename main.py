@@ -175,8 +175,9 @@ if __name__ == '__main__':
 
                 for fx in fita_x:
                     if fx not in alias:
-                        print('Caracter {} não está nos aliases'.format(fx))
+                        print('Caracter {} não está no alias'.format(fx))
                         exit(-1)
+                mt.fitas['X'] = fita_x
                 continue
             elif linha.__contains__('aceita'):
                 fim_aceita = int(linha.strip().split(' ')[0])

@@ -114,7 +114,7 @@ if __name__ == '__main__':
     logfile = ''
     file = ''
     entrada = ''
-
+    arquivoLog = ''
     if options == '-step':
         stepParameter = int(sys.argv[2])
         file = sys.argv[3]

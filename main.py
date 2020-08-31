@@ -106,7 +106,7 @@ if __name__ == '__main__':
         entrada = sys.argv[3]
     elif options == '-help':
         print("Exemplo de entrada válida:")
-        print("simuladorMT.py <opções> <arquivo> <entrada>")
+        print("main.py <opções> <arquivo> <entrada>")
         print("Opções:\n'–step <n>': Executa <n> computações e para, onde <n> é a quantidade de computações\n'–resume': Executa o programa até o fim\n'–debug <arquivo log>' A simulação produz um relatório mostrando por linha as instruções executadas, as entradas e saídas dos blocos")
         exit(0)
     else:

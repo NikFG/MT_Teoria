@@ -10,13 +10,15 @@ class Instrucao:
     simbolo: chr
     move: chr
     funcao: str
+    break_point: bool
 
-    def __init__(self, funcao, estado, fita, simbolo: str, move):
+    def __init__(self, funcao, estado, fita, simbolo: str, move, break_point):
         self.estado = estado
         self.fita = fita
         self.simbolo = simbolo
         self.move = move
         self.funcao = funcao
+        self.break_point = break_point
 
     def __str__(self) -> str:
         return '{}: {} {} {} {}'. \
@@ -193,10 +195,17 @@ if __name__ == '__main__':
                 else:
                     l = linha.strip().split(' ')
 
+                break_point = False
+
+                for k in l:
+                    if k.__contains__('!'):
+                        l = [s.replace('!', '') for s in l]
+                        break_point = True
+
                 if not l[1].__contains__(' '):
                     if l[1] == 'retorne':
-                        a = Instrucao('retorne', int(l[0]), '', '', 'i')
-                        b = Instrucao('retorne', -1, '', '', 'i')
+                        a = Instrucao('retorne', int(l[0]), '', '', 'i', break_point)
+                        b = Instrucao('retorne', -1, '', '', 'i', break_point)
                         lista_transicao[nome_transicao].append((a, b))
                     else:
                         if l[1] == 'pare':
@@ -204,14 +213,14 @@ if __name__ == '__main__':
                             print('ACEITA')
                             exit(0)
 
-                        a = Instrucao(nome_transicao, int(l[0]), '', '', 'i')
-                        b = Instrucao(l[1], int(l[2]), '', '', 'i')
+                        a = Instrucao(nome_transicao, int(l[0]), '', '', 'i', break_point)
+                        b = Instrucao(l[1], int(l[2]), '', '', 'i', break_point)
                         lista_transicao[nome_transicao].append((a, b))
                     continue
 
                 l0, l1 = l[0].split(' '), l[1].split(' ')
-                a = Instrucao(nome_transicao, int(l0[0]), l0[1], l0[2], l0[3])
-                b = Instrucao(nome_transicao, int(l1[0]), l1[1], l1[2], l1[3])
+                a = Instrucao(nome_transicao, int(l0[0]), l0[1], l0[2], l0[3], break_point)
+                b = Instrucao(nome_transicao, int(l1[0]), l1[1], l1[2], l1[3], break_point)
                 lista_transicao[nome_transicao].append((a, b))
 
     ordem_execucao = ['main']
@@ -262,11 +271,19 @@ if __name__ == '__main__':
                     mt.escreve_fita(lado_d)
                     if lado_d.estado != '*':
                         estado_atual = lado_d.estado
+
+                    if lado_d.break_point:
+                        print("---- breakpoint ----")
+                        opcao = int(input('Opção ? ( 0=termina , −1=resume ) : '))
+                        if opcao == 0:
+                            print(mt.fitas)
+                            exit(0)
+                        elif opcao == -1:
+                            stepParameter = 0
                     break
             elif options == '-step' and contComputacao == stepParameter:
                 opcao = int(input('Opção ? ( n=passos , 0=termina , −1=resume ) : '))
                 if opcao == 0:
-                    print(lista_transicao['copiaX'])
                     print(mt.fitas)
                     exit(0)
                 elif opcao == -1:

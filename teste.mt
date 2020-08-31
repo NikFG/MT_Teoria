@@ -1,7 +1,7 @@
 $d = 'abcdefghijklmno'
 
 inicio main 0
-    0 X * e -- 7 Y a i
+    0 X * e -- 7 Y a i !
     0 X b d -- 6 Y a d
     0 X c d -- 2 Y a d
     1 X a d -- 5 Y * d

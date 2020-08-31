@@ -189,7 +189,7 @@ if __name__ == '__main__':
             elif linha.__contains__('rejeita'):
                 fim_rejeita = int(linha.strip().split(' ')[0])
             elif linha.__contains__('fim'):
-                pass
+                continue
             else:
                 l = []
                 if ' -- ' in linha:

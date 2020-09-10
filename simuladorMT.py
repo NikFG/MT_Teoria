@@ -105,7 +105,7 @@ class MT:
 
 
 if __name__ == '__main__':
-    contAlias = 0
+    varAlias = ''
     options = ''
     if sys.argv[1] != '-step' and sys.argv[1] != '-debug' and sys.argv[1] != '-help':
         options = '-resume'
@@ -119,7 +119,7 @@ if __name__ == '__main__':
     if options == '-step':
         stepParameter = int(sys.argv[2])
         file = sys.argv[3]
-        entrada = sys.argv[4]
+        entrada = sys.argv[4:]
         if stepParameter == 0:
             print("Insira um valor válido para <n>")
             exit(-1)
@@ -134,7 +134,8 @@ if __name__ == '__main__':
     elif options == '-help':
         print("Exemplo de entrada válida:")
         print("simuladorMT.py <opções> <arquivo> <entrada>")
-        print("Opções:\n'–step <n>': Executa <n> computações e para, onde <n> é a quantidade de computações\n'–resume': Executa o programa até o fim\n'–debug <arquivo log>' A simulação produz um relatório mostrando por linha as instruções executadas, as entradas e saídas dos blocos")
+        print(
+            "Opções:\n'–step <n>': Executa <n> computações e para, onde <n> é a quantidade de computações\n'–resume': Executa o programa até o fim\n'–debug <arquivo log>' A simulação produz um relatório mostrando por linha as instruções executadas, as entradas e saídas dos blocos")
         exit(0)
     else:
         print("Digite uma entrada válida para a MT, em caso de dúvidas, digite '-help'")
@@ -144,7 +145,6 @@ if __name__ == '__main__':
     if options == '-debug':
         arquivoLog = open(logfile, "w")
     fita_x = []
-
     for e in entrada:
         fita_x.append(e)
     mt = MT()
@@ -172,19 +172,18 @@ if __name__ == '__main__':
                 if nome_transicao == 'main':
                     estado_atual = int(linhaAux[-1])
                 continue
-            if linha.__contains__('$') and contAlias ==0:
+            if linha.__contains__('$') and varAlias == '':
                 aliasSplited = linha.strip().replace('\'', '').replace('\"', '').split(' ')
-                contAlias+=1
                 if not pattern.fullmatch(aliasSplited[0]):
                     print(aliasSplited)
                     print('PADRÃO DE ALIAS NÃO ACEITO')
                     exit(-1)
-
+                varAlias = aliasSplited[0]
                 for al in aliasSplited[2]:
                     alias.append(al)
 
                 for fx in fita_x:
-                    if fx not in alias:
+                    if fx not in alias and fx != ' ':
                         print('Caracter {} não está no alias'.format(fx))
                         exit(-1)
                 mt.fitas['X'] = fita_x
@@ -278,12 +277,17 @@ if __name__ == '__main__':
             aux = mt.fitas.get(lado_e.fita)[mt.retorna_index(lado_e.fita)]
             aux2 = lado_e.simbolo
 
-            if (aux not in alias or aux2 not in alias) and (aux != '*' and aux2 != '*') and (aux != '_' and aux2 != '_'):
+            if aux != varAlias and aux not in alias and aux != '*' and aux != '_':
+                # print(aux)
                 print('Caracter inválido')
                 exit(-1)
-            if options != '-step' or contComputacao != stepParameter:
+            if aux2 != varAlias and aux2 not in alias and aux2 != '*' and aux2 != '_':
+                print(aux2)
+                print('Caracter inválido')
 
-                if aux == aux2 or aux2 == '*':
+            if options != '-step' or contComputacao != stepParameter:
+                print(aux2)
+                if aux == aux2 or aux2 == '*' or aux == ' ':
                     contComputacao += 1
                     if options == '-debug':
                         teste = arquivoLog.write(
@@ -291,6 +295,7 @@ if __name__ == '__main__':
                                                                        lado_e.simbolo, lado_e.fita, lado_e.move,
                                                                        lado_d.estado, lado_d.simbolo, lado_d.fita,
                                                                        lado_d.move))
+                
                     mt.move_index(lado_e.move, lado_e.fita)
                     mt.escreve_fita(lado_d)
                     if lado_d.estado != '*':
@@ -306,7 +311,7 @@ if __name__ == '__main__':
                         print('fitaY: {}'.format(mt.fitas['Y']))
                         print('fitaZ: {}'.format(mt.fitas['Z']))
                         print(
-                            "_____________________________________________________________________________________________")
+                            "_____________________________________________________________________________________________") 
                         opcao = int(input('Opção ? ( 0=termina , −1=resume ) : '))
                         if opcao == 0:
                             exit(0)

@@ -105,6 +105,7 @@ class MT:
 
 
 if __name__ == '__main__':
+    contAlias = 0
     options = ''
     if sys.argv[1] != '-step' and sys.argv[1] != '-debug' and sys.argv[1] != '-help':
         options = '-resume'
@@ -171,9 +172,11 @@ if __name__ == '__main__':
                 if nome_transicao == 'main':
                     estado_atual = int(linhaAux[-1])
                 continue
-            if linha.__contains__('$'):
+            if linha.__contains__('$') and contAlias ==0:
                 aliasSplited = linha.strip().replace('\'', '').replace('\"', '').split(' ')
+                contAlias+=1
                 if not pattern.fullmatch(aliasSplited[0]):
+                    print(aliasSplited)
                     print('PADRÃO DE ALIAS NÃO ACEITO')
                     exit(-1)
 

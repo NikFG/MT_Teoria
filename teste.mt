@@ -1,14 +1,7 @@
-$d = 'abcdefghijklmno'
+$d = 'abcdefghijklmno1234567890+-='
 
 inicio main 0
-    0 X a d -- 1 Y a d
-    0 X b d -- 6 Y a d
-    0 X c d -- 2 Y a d
-    1 X b i -- 5 Y a i
-    2 X c e -- 3 Z a d
-    3 X b d -- 5 Y d d
-    4 X e d -- 4 Y e d
-    7 copiaX 5
+    0 soma 5
     5 aceita
     6 rejeita
     8 pare
@@ -25,4 +18,22 @@ inicio blablabla 0
     1 retorne
 fim blablabla
 
-
+inicio soma 0
+	0 X $d d -- 1 Z $d d ;com erro
+	0 X _ d -- 0 Z _ i
+	0 X * i -- 5 Z _ i
+	1 X $d d -- 1 Z $d d
+	1 X + d -- 2 Z + d
+	1 X - d -- 2 Z - d
+	1 X _ d -- 1 Z _ i
+	1 X * i -- 5 Z _ i
+	2 X $d d -- 3 Z $d d
+	2 X _ d -- 2 Z _ i
+	2 X * i -- 5 Z _ i
+	3 X $d d -- 3 Z $d d
+	3 X = d -- 4 Z = d
+	3 X _ d -- 3 Z _ i
+	3 X * i -- 5 Z _ i
+	4 aceita
+	5 rejeita
+fim soma

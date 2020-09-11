@@ -183,7 +183,7 @@ if __name__ == '__main__':
                     alias.append(al)
 
                 for fx in fita_x:
-                    if fx not in alias and fx != ' ':
+                    if fx not in alias and fx != ' ' and fx != '+' and fx != '-' and fx != '=':
                         print('Caracter {} não está no alias'.format(fx))
                         exit(-1)
                 mt.fitas['X'] = fita_x
@@ -278,15 +278,15 @@ if __name__ == '__main__':
             aux2 = lado_e.simbolo
 
             if aux != varAlias and aux not in alias and aux != '*' and aux != '_':
-                # print(aux)
-                print('Caracter inválido')
+                print('Caracter {} inválido'.format(aux))
                 exit(-1)
             if aux2 != varAlias and aux2 not in alias and aux2 != '*' and aux2 != '_':
-                print(aux2)
                 print('Caracter inválido')
 
             if options != '-step' or contComputacao != stepParameter:
-                print(aux2)
+                if aux2 == varAlias:
+                    lado_d.simbolo = aux
+                    aux2 = aux
                 if aux == aux2 or aux2 == '*' or aux == ' ':
                     contComputacao += 1
                     if options == '-debug':
@@ -295,7 +295,7 @@ if __name__ == '__main__':
                                                                        lado_e.simbolo, lado_e.fita, lado_e.move,
                                                                        lado_d.estado, lado_d.simbolo, lado_d.fita,
                                                                        lado_d.move))
-                
+
                     mt.move_index(lado_e.move, lado_e.fita)
                     mt.escreve_fita(lado_d)
                     if lado_d.estado != '*':
@@ -311,7 +311,7 @@ if __name__ == '__main__':
                         print('fitaY: {}'.format(mt.fitas['Y']))
                         print('fitaZ: {}'.format(mt.fitas['Z']))
                         print(
-                            "_____________________________________________________________________________________________") 
+                            "_____________________________________________________________________________________________")
                         opcao = int(input('Opção ? ( 0=termina , −1=resume ) : '))
                         if opcao == 0:
                             exit(0)

@@ -95,6 +95,26 @@ inicio soma1 0
     4 Y * d -- 4 Y * i
 fim soma1
 
+inicio soma2 0
+	0 Y + e -- 1 Y * i
+	0 Y g e -- 3 Y _ i
+	0 Y * e -- 0 Y * i
+	1 Y 0 e -- 2 Z 2 d
+    1 Y 1 e -- 2 Z 3 d
+    1 Y 2 e -- 2 Z 4 d
+    1 Y 3 e -- 2 Z 5 d
+    1 Y 4 e -- 2 Z 6 d
+    1 Y 5 e -- 2 Z 7 d
+    1 Y 6 e -- 2 Z 8 d
+    1 Y 7 e -- 2 Z 9 d
+    1 Y 8 e -- 2 Z 0 d
+    1 Y 9 e -- 4 Z 1 d
+    2 retorne
+    3 soma3 2
+    4 Y _ i -- 2 Y g i
+    4 Y * d -- 4 Y * i
+fim soma2
+
 inicio soma3 0
 	0 Y + e -- 1 Y * i
 	0 Y g e -- 3 Y _ i
@@ -114,6 +134,46 @@ inicio soma3 0
     4 Y _ i -- 2 Y g i
     4 Y * d -- 3 Y * i
 fim soma3
+
+inicio soma4 0
+	0 Y + e -- 1 Y * i
+	0 Y g e -- 3 Y _ i
+	0 Y * e -- 0 Y * i
+	1 Y 0 e -- 2 Z 4 d
+    1 Y 1 e -- 2 Z 5 d
+    1 Y 2 e -- 2 Z 6 d
+    1 Y 3 e -- 2 Z 7 d
+    1 Y 4 e -- 2 Z 8 d
+    1 Y 5 e -- 2 Z 9 d
+    1 Y 6 e -- 2 Z 0 d
+    1 Y 7 e -- 4 Z 1 d
+    1 Y 8 e -- 4 Z 2 d
+    1 Y 9 e -- 4 Z 3 d
+    2 retorne
+    3 soma5 2
+    4 Y _ i -- 2 Y g i
+    4 Y * d -- 3 Y * i
+fim soma4
+
+inicio soma5 0
+	0 Y + e -- 1 Y * i
+	0 Y g e -- 3 Y _ i
+	0 Y * e -- 0 Y * i
+	1 Y 0 e -- 2 Z 5 d
+    1 Y 1 e -- 2 Z 6 d
+    1 Y 2 e -- 2 Z 7 d
+    1 Y 3 e -- 2 Z 8 d
+    1 Y 4 e -- 2 Z 9 d
+    1 Y 5 e -- 2 Z 0 d
+    1 Y 6 e -- 2 Z 1 d
+    1 Y 7 e -- 4 Z 2 d
+    1 Y 8 e -- 4 Z 3 d
+    1 Y 9 e -- 4 Z 4 d
+    2 retorne
+    3 soma6 2
+    4 Y _ i -- 2 Y g i
+    4 Y * d -- 3 Y * i
+fim soma5
 
 inicio soma6 0
 	0 Y + e -- 1 Y * i
@@ -135,6 +195,25 @@ inicio soma6 0
     4 Y * d -- 3 Y * i
 fim soma6
 
+inicio soma7 0
+	0 Y + e -- 1 Y * i
+	0 Y g e -- 3 Y _ i
+	0 Y * e -- 0 Y * i
+	1 Y 0 e -- 2 Z 7 d
+    1 Y 1 e -- 2 Z 8 d
+    1 Y 2 e -- 2 Z 9 d
+    1 Y 3 e -- 2 Z 0 d
+    1 Y 4 e -- 2 Z 1 d
+    1 Y 5 e -- 2 Z 2 d
+    1 Y 6 e -- 2 Z 3 d
+    1 Y 7 e -- 2 Z 4 d
+    1 Y 8 e -- 2 Z 5 d
+    1 Y 9 e -- 2 Z 6 d
+    2 retorne
+    3 soma8 2
+    4 Y _ i -- 2 Y g i
+    4 Y * d -- 3 Y * i
+fim soma7
 
 inicio soma8 0
 	0 Y + e -- 1 Y * i

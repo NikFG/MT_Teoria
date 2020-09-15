@@ -30,6 +30,16 @@ inicio main 0
     14 rejeita
     15 aceita
     16 inverteResultado 15
+    17 subtrai0 13
+    18 subtrai1 13
+    19 subtrai2 13
+    20 subtrai3 13
+    21 subtrai4 13
+    22 subtrai5 13
+    23 subtrai6 13
+    24 subtrai7 13
+    25 subtrai8 13
+    26 subtrai9 13
 fim main
 
 inicio copiaX 0
@@ -198,3 +208,184 @@ inicio inverteResultado 0
     4 retorne
 fim inverteResultado
 
+inicio subtrai9 0
+    0 Y - e -- 1 Y * i
+    0 Y g e -- 3 Y _ i
+    0 Y * e -- 0 Y * i
+    1 Y 0 e -- 2 Z 9 d
+    1 Y 1 e -- 2 Z 8 d
+    1 Y 2 e -- 2 Z 7 d
+    1 Y 3 e -- 2 Z 6 d
+    1 Y 4 e -- 2 Z 5 d
+    1 Y 5 e -- 2 Z 4 d
+    1 Y 6 e -- 2 Z 3 d
+    1 Y 7 e -- 2 Z 2 d
+    1 Y 8 e -- 2 Z 1 d
+    1 Y 9 e -- 2 Z 0 d
+    2 retorne
+    3 subtrai8 2
+fim subtrai9
+
+inicio subtrai8 0
+    0 Y - e -- 1 Y * i
+    0 Y g e -- 3 Y _ i
+    0 Y * e -- 0 Y * i
+    1 Y 0 e -- 2 Z 8 d
+    1 Y 1 e -- 2 Z 7 d
+    1 Y 2 e -- 2 Z 6 d
+    1 Y 3 e -- 2 Z 5 d
+    1 Y 4 e -- 2 Z 4 d
+    1 Y 5 e -- 2 Z 3 d
+    1 Y 6 e -- 2 Z 2 d
+    1 Y 7 e -- 2 Z 1 d
+    1 Y 8 e -- 2 Z 0 d
+    1 Y 9 e -- 2 Z 9 d
+    2 retorne
+    3 subtrai7 2
+fim subtrai8
+
+inicio subtrai7 0
+    0 Y - e -- 1 Y * i
+    0 Y g e -- 3 Y _ i
+    0 Y * e -- 0 Y * i
+    1 Y 0 e -- 2 Z 7 d
+    1 Y 1 e -- 2 Z 6 d
+    1 Y 2 e -- 2 Z 5 d
+    1 Y 3 e -- 2 Z 4 d
+    1 Y 4 e -- 2 Z 3 d
+    1 Y 5 e -- 2 Z 2 d
+    1 Y 6 e -- 2 Z 1 d
+    1 Y 7 e -- 2 Z 0 d
+    1 Y 8 e -- 2 Z 9 d
+    1 Y 9 e -- 2 Z 8 d
+    2 retorne
+    3 subtrai6 2
+fim subtrai7
+
+
+inicio subtrai6 0
+    0 Y - e -- 1 Y * i
+    0 Y g e -- 3 Y _ i
+    0 Y * e -- 0 Y * i
+    1 Y 0 e -- 2 Z 6 d
+    1 Y 1 e -- 2 Z 5 d
+    1 Y 2 e -- 2 Z 4 d
+    1 Y 3 e -- 2 Z 3 d
+    1 Y 4 e -- 2 Z 2 d
+    1 Y 5 e -- 2 Z 1 d
+    1 Y 6 e -- 2 Z 0 d
+    1 Y 7 e -- 2 Z 9 d
+    1 Y 8 e -- 2 Z 8 d
+    1 Y 9 e -- 2 Z 7 d
+    2 retorne
+    3 subtrai5 2
+fim subtrai6
+
+inicio subtrai5 0
+    0 Y - e -- 1 Y * i
+    0 Y g e -- 3 Y _ i
+    0 Y * e -- 0 Y * i
+    1 Y 0 e -- 2 Z 5 d
+    1 Y 1 e -- 2 Z 4 d
+    1 Y 2 e -- 2 Z 3 d
+    1 Y 3 e -- 2 Z 2 d
+    1 Y 4 e -- 2 Z 1 d
+    1 Y 5 e -- 2 Z 0 d
+    1 Y 6 e -- 2 Z 9 d
+    1 Y 7 e -- 2 Z 8 d
+    1 Y 8 e -- 2 Z 7 d
+    1 Y 9 e -- 2 Z 6 d
+    2 retorne
+    3 subtrai4 2
+fim subtrai5
+
+inicio subtrai4 0
+    0 Y - e -- 1 Y * i
+    0 Y g e -- 3 Y _ i
+    0 Y * e -- 0 Y * i
+    1 Y 0 e -- 2 Z 4 d
+    1 Y 1 e -- 2 Z 3 d
+    1 Y 2 e -- 2 Z 2 d
+    1 Y 3 e -- 2 Z 1 d
+    1 Y 4 e -- 2 Z 0 d
+    1 Y 5 e -- 2 Z 9 d
+    1 Y 6 e -- 2 Z 8 d
+    1 Y 7 e -- 2 Z 7 d
+    1 Y 8 e -- 2 Z 6 d
+    1 Y 9 e -- 2 Z 5 d
+    2 retorne
+    3 subtrai3 2
+fim subtrai4
+
+inicio subtrai3 0
+    0 Y - e -- 1 Y * i
+    0 Y g e -- 3 Y _ i
+    0 Y * e -- 0 Y * i
+    1 Y 0 e -- 2 Z 3 d
+    1 Y 1 e -- 2 Z 2 d
+    1 Y 2 e -- 2 Z 1 d
+    1 Y 3 e -- 2 Z 0 d
+    1 Y 4 e -- 2 Z 9 d
+    1 Y 5 e -- 2 Z 8 d
+    1 Y 6 e -- 2 Z 7 d
+    1 Y 7 e -- 2 Z 6 d
+    1 Y 8 e -- 2 Z 5 d
+    1 Y 9 e -- 2 Z 4 d
+    2 retorne
+    3 subtrai2 2
+fim subtrai3
+
+inicio subtrai2 0
+    0 Y - e -- 1 Y * i
+    0 Y g e -- 3 Y _ i
+    0 Y * e -- 0 Y * i
+    1 Y 0 e -- 2 Z 2 d
+    1 Y 1 e -- 2 Z 1 d
+    1 Y 2 e -- 2 Z 0 d
+    1 Y 3 e -- 2 Z 9 d
+    1 Y 4 e -- 2 Z 8 d
+    1 Y 5 e -- 2 Z 7 d
+    1 Y 6 e -- 2 Z 6 d
+    1 Y 7 e -- 2 Z 5 d
+    1 Y 8 e -- 2 Z 4 d
+    1 Y 9 e -- 2 Z 3 d
+    2 retorne
+    3 subtrai1 2
+fim subtrai2
+
+
+inicio subtrai1 0
+    0 Y - e -- 1 Y * i
+    0 Y g e -- 3 Y _ i
+    0 Y * e -- 0 Y * i
+    1 Y 0 e -- 2 Z 1 d
+    1 Y 1 e -- 2 Z 0 d
+    1 Y 2 e -- 2 Z 9 d
+    1 Y 3 e -- 2 Z 8 d
+    1 Y 4 e -- 2 Z 7 d
+    1 Y 5 e -- 2 Z 6 d
+    1 Y 6 e -- 2 Z 5 d
+    1 Y 7 e -- 2 Z 4 d
+    1 Y 8 e -- 2 Z 3 d
+    1 Y 9 e -- 2 Z 2 d
+    2 retorne
+    3 subtrai0 2
+fim subtrai1
+
+inicio subtrai0 0
+    0 Y - e -- 1 Y * i
+    0 Y g e -- 3 Y _ i
+    0 Y * e -- 0 Y * i
+    1 Y 0 e -- 2 Z 0 d
+    1 Y 1 e -- 2 Z 9 d
+    1 Y 2 e -- 2 Z 8 d
+    1 Y 3 e -- 2 Z 7 d
+    1 Y 4 e -- 2 Z 6 d
+    1 Y 5 e -- 2 Z 5 d
+    1 Y 6 e -- 2 Z 4 d
+    1 Y 7 e -- 2 Z 3 d
+    1 Y 8 e -- 2 Z 2 d
+    1 Y 9 e -- 2 Z 1 d
+    2 retorne
+    3 subtrai9 2
+fim subtrai0

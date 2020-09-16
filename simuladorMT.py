@@ -49,13 +49,13 @@ class MT:
         indexAux = 0
         if index == 'X':
             self.indexX += sinal
-            indexAux = self.indexX
+            indexAux = self.indexX+self.negativoX
         elif index == 'Y':
             self.indexY += sinal
-            indexAux = self.indexY
+            indexAux = self.indexY+self.negativoY
         else:
             self.indexZ += sinal
-            indexAux = self.indexZ
+            indexAux = self.indexZ+self.negativoZ
 
         if indexAux >= len(self.fitas[index]) and sentido == 'd':
             self.fitas[index] = self.fitas[index] + ['_']
@@ -236,7 +236,7 @@ if __name__ == '__main__':
     while continua:
         lados = []
         i = 0
-        if estado_atual == fim_aceita or estado_atual == fim_rejeita:
+        if (estado_atual == fim_aceita or estado_atual == fim_rejeita) and (ordem_execucao[-1]=='main'):
             continua = False
             break
 
@@ -274,6 +274,7 @@ if __name__ == '__main__':
                 lista_retorna.append(lado_d.estado)
                 estado_atual = estados_iniciais[ordem_execucao[-1]]
                 break
+
             aux = mt.fitas.get(lado_e.fita)[mt.retorna_index(lado_e.fita)]
             aux2 = lado_e.simbolo
 

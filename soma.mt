@@ -108,7 +108,7 @@ inicio somaAux 0
    0 Y + i -- 1 Y * e
    0 Y * i -- 0 Y * e
 
-   1 Y 0 i -- 3 Y 1 i
+   1 Y 0 i -- 3 Y 1 i!
    1 Y 1 i -- 3 Y 2 i
    1 Y 2 i -- 3 Y 3 i
    1 Y 3 i -- 3 Y 4 i
@@ -117,17 +117,22 @@ inicio somaAux 0
    1 Y 6 i -- 3 Y 7 i
    1 Y 7 i -- 3 Y 8 i
    1 Y 8 i -- 3 Y 9 i
-   1 Y 9 i -- 14 Y 0 i
+   1 Y 9 i -- 2 Y 0 e
    1 Y x i -- 1 Y * e
 
-    3 retorne
+   2 Y _ i -- 3 Y 1 i!
+   2 Y * i -- 1 Y * i!
 
-    14 Y _ i -- 3 Y g i
-    14 Y * d -- 14 Y * i
+   3 retorne
+
+  14 Y _ i -- 3 Y g i
+  14 Y * d -- 14 Y * i
 fim somaAux
 
 
-
+inicio igualaDigito 0
+    0 retorne
+fim igualaDigito
 inicio soma0 0
 
    0 Y + i -- 1 Y * e
@@ -329,7 +334,7 @@ inicio soma5 0
     1 Y 8 i -- 12 Y x i
     1 Y 9 i -- 13 Y x i
     1 Y x i -- 1 Y * e
-    
+
     2 Y x i -- 3 Z 5 d
     5 Y x i -- 3 Z 6 d
     6 Y x i -- 3 Z 7 d

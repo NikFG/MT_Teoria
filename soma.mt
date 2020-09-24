@@ -46,23 +46,36 @@ inicio main 0
     24 subtrai7 13
     25 subtrai8 13
     26 subtrai9 13
+
     27 Y + i -- 28 Y * e
     27 Y x i -- 27 Y * e
     27 Y * i -- 2 Y * i
+
     28 Y x i -- 28 Y * e
-    28 Y _ i -- 16 Y * i
-    28 Y 0 i -- 16 Z 0 i
-    28 Y 1 i -- 16 Z 1 i
-    28 Y 2 i -- 16 Z 2 i
-    28 Y 3 i -- 16 Z 3 i
-    28 Y 4 i -- 16 Z 4 i
-    28 Y 5 i -- 16 Z 5 i
-    28 Y 6 i -- 16 Z 6 i
-    28 Y 7 i -- 16 Z 7 i
-    28 Y 8 i -- 16 Z 8 i
-    28 Y 9 i -- 16 Z 9 i
+    28 Y _ i -- 16 Y * e
+    28 Y 0 i -- 29 Y x e
+    28 Y 1 i -- 30 Y x e
+    28 Y 2 i -- 31 Y x e
+    28 Y 3 i -- 32 Y x e
+    28 Y 4 i -- 33 Y x e
+    28 Y 5 i -- 34 Y x e
+    28 Y 6 i -- 35 Y x e
+    28 Y 7 i -- 36 Y x e
+    28 Y 8 i -- 37 Y x e
+    28 Y 9 i -- 38 Y x e
     28 Y * i -- 2 Y * i
 
+
+    29 Y * i -- 28 Z 0 d
+    30 Y * i -- 28 Z 1 d
+    31 Y * i -- 28 Z 2 d
+    32 Y * i -- 28 Z 3 d
+    33 Y * i -- 28 Z 4 d
+    34 Y * i -- 28 Z 5 d
+    35 Y * i -- 28 Z 6 d
+    36 Y * i -- 28 Z 7 d
+    37 Y * i -- 28 Z 8 d
+    38 Y * i -- 28 Z 9 d
 fim main
 
 inicio copiaX 0
@@ -132,7 +145,7 @@ inicio somaAux 0
    1 Y x i -- 1 Y * e
    1 Y _ i -- 2 Y * i
 
-   2 Y _ i -- 3 Y 1 i
+   2 Y _ i -- 3 Y 1 e
    2 Y * i -- 1 Y * i
 
    3 retorne
@@ -164,6 +177,8 @@ inicio soma0 0
     1 Y 8 i -- 12 Y x i
     1 Y 9 i -- 13 Y x i
     1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 0 d
+
 
     2 Y x i -- 3 Z 0 d
     5 Y x i -- 3 Z 1 d
@@ -203,6 +218,7 @@ inicio soma1 0
     1 Y 8 i -- 12 Y x i
     1 Y 9 i -- 13 Y x i
     1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 1 d
 
     2 Y x i -- 3 Z 1 d
     5 Y x i -- 3 Z 2 d
@@ -222,13 +238,13 @@ inicio soma1 0
 fim soma1
 
 inicio soma2 0
-   0 Y + i -- 1 Y * e
-   0 Y _ d -- 1 Z * i
-   0 Y * i -- 0 Y * e
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
 
-	1 Y 0 i -- 2 Y x i
-	1 Y 1 i -- 5 Y x i
-	1 Y 2 i -- 6 Y x i
+    1 Y 0 i -- 2 Y x i
+    1 Y 1 i -- 5 Y x i
+    1 Y 2 i -- 6 Y x i
     1 Y 3 i -- 7 Y x i
     1 Y 4 i -- 8 Y x i
     1 Y 5 i -- 9 Y x i
@@ -237,6 +253,7 @@ inicio soma2 0
     1 Y 8 i -- 12 Y x i
     1 Y 9 i -- 13 Y x i
     1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 2 d
 
     2 Y x i -- 3 Z 2 d
     5 Y x i -- 3 Z 3 d
@@ -247,7 +264,7 @@ inicio soma2 0
     10 Y x i -- 3 Z 8 d
     11 Y x i -- 3 Z 9 d
     12 Y x i -- 14 Z 0 d
-    13 Y x i -- 14 Z 1 d
+    13 Y x i -- 14 Z 2 d
 
     3 retorne
 
@@ -257,9 +274,9 @@ fim soma2
 
 inicio soma3 0
 
-   0 Y + i -- 1 Y * e
-   0 Y _ d -- 1 Z * i
-   0 Y * i -- 0 Y * e
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
 
 
 
@@ -274,6 +291,7 @@ inicio soma3 0
     1 Y 8 i -- 12 Y x i
     1 Y 9 i -- 13 Y x i
     1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 3 d
 
     2 Y x i -- 3 Z 3 d
     5 Y x i -- 3 Z 4 d
@@ -294,11 +312,9 @@ fim soma3
 
 inicio soma4 0
 
-   0 Y + i -- 1 Y * e
-   0 Y _ d -- 1 Z * i
-   0 Y * i -- 0 Y * e
-
-
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
 
     1 Y 0 i -- 2 Y x i
 	1 Y 1 i -- 5 Y x i
@@ -311,6 +327,7 @@ inicio soma4 0
     1 Y 8 i -- 12 Y x i
     1 Y 9 i -- 13 Y x i
     1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 4 d
 
     2 Y x i -- 3 Z 4 d
     5 Y x i -- 3 Z 5 d
@@ -346,6 +363,7 @@ inicio soma5 0
     1 Y 8 i -- 12 Y x i
     1 Y 9 i -- 13 Y x i
     1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 5 d
 
     2 Y x i -- 3 Z 5 d
     5 Y x i -- 3 Z 6 d
@@ -366,9 +384,9 @@ fim soma5
 
 inicio soma6 0
 
-   0 Y + i -- 1 Y * e
-   0 Y _ d -- 1 Z * i
-   0 Y * i -- 0 Y * e
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
 
 
     1 Y 0 i -- 3 Y x i
@@ -382,6 +400,7 @@ inicio soma6 0
     1 Y 8 i -- 12 Y x i
     1 Y 9 i -- 13 Y x i
     1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 6 d
 
     2 Y x i -- 3 Z 6 d
     5 Y x i -- 3 Z 7 d
@@ -418,6 +437,7 @@ inicio soma7 0
     1 Y 8 i -- 12 Y x i
     1 Y 9 i -- 13 Y x i
     1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 7 d
 
     2 Y x i -- 3 Z 7 d
     5 Y x i -- 3 Z 8 d
@@ -438,9 +458,9 @@ fim soma7
 
 inicio soma8 0
 
-   0 Y + i -- 1 Y * e
-   0 Y _ d -- 1 Z * i
-   0 Y * i -- 0 Y * e
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
 
 
 
@@ -455,6 +475,7 @@ inicio soma8 0
     1 Y 8 i -- 12 Y x i
     1 Y 9 i -- 13 Y x i
     1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 8 d
 
     2 Y x i -- 3 Z 8 d
     5 Y x i -- 3 Z 9 d
@@ -475,11 +496,9 @@ fim soma8
 
 inicio soma9 0
 
-   0 Y + i -- 1 Y * e
-   0 Y _ d -- 1 Z * i
-   0 Y * i -- 0 Y * e
-
-
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
 
     1 Y 0 i -- 2 Y x i
     1 Y 1 i -- 5 Y x i
@@ -492,6 +511,7 @@ inicio soma9 0
     1 Y 8 i -- 12 Y x i
     1 Y 9 i -- 13 Y x i
     1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 9 d
 
     2 Y x i -- 3 Z 9 d
     5 Y x i -- 14 Z 0 d
@@ -523,6 +543,7 @@ fim voltaCabecoteY
 inicio inverteResultado 0
     0 Z = i -- 1 Z * d
     0 Z * i -- 0 Z * e
+
     1 Z 0 d -- 1 Y 0 d
     1 Z 1 d -- 1 Y 1 d
     1 Z 2 d -- 1 Y 2 d
@@ -534,8 +555,10 @@ inicio inverteResultado 0
     1 Z 8 d -- 1 Y 8 d
     1 Z 9 d -- 1 Y 9 d
     1 Z _ i -- 2 Y * i
+
     2 Z = d -- 3 Y * e
     2 Z * e -- 2 Z * i
+
     3 Y 0 e -- 3 Z 0 d
     3 Y 1 e -- 3 Z 1 d
     3 Y 2 e -- 3 Z 2 d
@@ -547,6 +570,7 @@ inicio inverteResultado 0
     3 Y 8 e -- 3 Z 8 d
     3 Y 9 e -- 3 Z 9 d
     3 Y _ i -- 4 Z * i
+
     4 retorne
 fim inverteResultado
 

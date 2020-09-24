@@ -1,11 +1,33 @@
 $d = '1234567890+-=gx'
 
 inicio main 0
-    0 copiaX 1
+    0 copiaX 40
+
+    40 Y + i -- 13 Y * i
+    40 Y - i -- 41 Y * i
+    40 Y * i -- 40 Y * e
+
+    42 Y = e -- 43 Y * i
+    42 Y g i -- 43 Y * i
+    42 Y _ e -- 42 Y * i
+    43 Y 0 i -- 17 Y x e
+    43 Y 1 i -- 18 Y x e
+    43 Y 2 i -- 19 Y x e
+    43 Y 3 i -- 20 Y x e
+    43 Y 4 i -- 21 Y x e
+    43 Y 5 i -- 22 Y x e
+    43 Y 6 i -- 23 Y x e
+    43 Y 7 i -- 24 Y x e
+    43 Y 8 i -- 25 Y x e
+    43 Y 9 i -- 26 Y x e
+    43 Y x i -- 27 Y * e
+    43 Y g i -- 44 Y _ e
+    43 Y _ i -- 16 Z 1 i
+    43 Y * i -- 14 Y * i
 
     1 Y = e -- 2 Y * i
     1 Y g i -- 2 Y * i
-    1 Y _ e -- 1 Z * i
+    1 Y _ e -- 1 Y * i
     2 Y 0 i -- 3 Y x e
     2 Y 1 i -- 4 Y x e
     2 Y 2 i -- 5 Y x e
@@ -17,7 +39,7 @@ inicio main 0
     2 Y 8 i -- 11 Y x e
     2 Y 9 i -- 12 Y x e
     2 Y x i -- 27 Y * e
-    2 Y g i -- 200 Y _ e
+    2 Y g i -- 39 Y _ e
     2 Y _ i -- 16 Z 1 i
     2 Y * i -- 14 Y * i
 
@@ -31,25 +53,30 @@ inicio main 0
     10 soma7 13
     11 soma8 13
     12 soma9 13
-    200 somaAux 13
+    39 somaAux 13
+    44 subtraiAux 41
     13 cabecoteCertoY 1
+    41 cabecoteCertoY 42
     14 rejeita
     15 aceita
     16 inverteResultado 15
-    17 subtrai0 13
-    18 subtrai1 13
-    19 subtrai2 13
-    20 subtrai3 13
-    21 subtrai4 13
-    22 subtrai5 13
-    23 subtrai6 13
-    24 subtrai7 13
-    25 subtrai8 13
-    26 subtrai9 13
+    17 subtrai0 41
+    18 subtrai1 41
+    19 subtrai2 41
+    20 subtrai3 41
+    21 subtrai4 41
+    22 subtrai5 41
+    23 subtrai6 41
+    24 subtrai7 41
+    25 subtrai8 41
+    26 subtrai9 41
 
     27 Y + i -- 28 Y * e
+    27 Y - i -- 28 Y * e
     27 Y x i -- 27 Y * e
     27 Y * i -- 2 Y * i
+
+    ;Este bloco verifica o restante dos números
 
     28 Y x i -- 28 Y * e
     28 Y _ i -- 16 Y * e
@@ -155,16 +182,11 @@ inicio somaAux 0
 fim somaAux
 
 
-inicio igualaDigito 0
-    0 retorne
-fim igualaDigito
 inicio soma0 0
 
-   0 Y + i -- 1 Y * e
-   0 Y _ d -- 1 Z * i
-   0 Y * i -- 0 Y * e
-
-
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
 
 	1 Y 0 i -- 2 Y x i
 	1 Y 1 i -- 5 Y x i
@@ -196,21 +218,16 @@ inicio soma0 0
 fim soma0
 
 
-
-
 inicio soma1 0
 
-   0 Y + i -- 1 Y * e
-   0 Y _ d -- 1 Z * i
-   0 Y * i -- 0 Y * e
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
 
-
-
-
-   1 Y 0 i -- 2 Y x i
-   1 Y 1 i -- 5 Y x i
-   1 Y 2 i -- 6 Y x i
-   1 Y 3 i -- 7 Y x i
+    1 Y 0 i -- 2 Y x i
+    1 Y 1 i -- 5 Y x i
+    1 Y 2 i -- 6 Y x i
+    1 Y 3 i -- 7 Y x i
     1 Y 4 i -- 8 Y x i
     1 Y 5 i -- 9 Y x i
     1 Y 6 i -- 10 Y x i
@@ -524,7 +541,6 @@ inicio soma9 0
     12 Y x i -- 14 Z 7 d
     13 Y x i -- 14 Z 8 d
 
-
     14 Y _ i -- 3 Y g i
     14 Y * d -- 14 Z * i
     3 retorne
@@ -575,183 +591,370 @@ inicio inverteResultado 0
 fim inverteResultado
 
 inicio subtrai9 0
-    0 Y - e -- 1 Y * i
-    0 Y g e -- 3 Y _ i
-    0 Y * e -- 0 Y * i
-    1 Y 0 e -- 2 Z 9 d
-    1 Y 1 e -- 2 Z 8 d
-    1 Y 2 e -- 2 Z 7 d
-    1 Y 3 e -- 2 Z 6 d
-    1 Y 4 e -- 2 Z 5 d
-    1 Y 5 e -- 2 Z 4 d
-    1 Y 6 e -- 2 Z 3 d
-    1 Y 7 e -- 2 Z 2 d
-    1 Y 8 e -- 2 Z 1 d
-    1 Y 9 e -- 2 Z 0 d
-    2 retorne
-    3 subtrai8 2
+    0 Y - i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
+
+    1 Y 0 i -- 2 Y x i
+    1 Y 1 i -- 5 Y x i
+    1 Y 2 i -- 6 Y x i
+    1 Y 3 i -- 7 Y x i
+    1 Y 4 i -- 8 Y x i
+    1 Y 5 i -- 9 Y x i
+    1 Y 6 i -- 10 Y x i
+    1 Y 7 i -- 11 Y x i
+    1 Y 8 i -- 12 Y x i
+    1 Y 9 i -- 13 Y x i
+    1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 0 d
+
+
+    2 Y x i -- 3 Z 9 d
+    5 Y x i -- 3 Z 8 d
+    6 Y x i -- 3 Z 7 d
+    7 Y x i -- 3 Z 6 d
+    8 Y x i -- 3 Z 5 d
+    9 Y x i -- 3 Z 4 d
+    10 Y x i -- 3 Z 3 d
+    11 Y x i -- 3 Z 2 d
+    12 Y x i -- 3 Z 1 d
+    13 Y x i -- 3 Z 0 d
+
+    3 retorne
 fim subtrai9
 
 inicio subtrai8 0
-    0 Y - e -- 1 Y * i
-    0 Y g e -- 3 Y _ i
-    0 Y * e -- 0 Y * i
-    1 Y 0 e -- 2 Z 8 d
-    1 Y 1 e -- 2 Z 7 d
-    1 Y 2 e -- 2 Z 6 d
-    1 Y 3 e -- 2 Z 5 d
-    1 Y 4 e -- 2 Z 4 d
-    1 Y 5 e -- 2 Z 3 d
-    1 Y 6 e -- 2 Z 2 d
-    1 Y 7 e -- 2 Z 1 d
-    1 Y 8 e -- 2 Z 0 d
-    1 Y 9 e -- 2 Z 9 d
-    2 retorne
-    3 subtrai7 2
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
+
+    1 Y 0 i -- 2 Y x i
+    1 Y 1 i -- 5 Y x i
+    1 Y 2 i -- 6 Y x i
+    1 Y 3 i -- 7 Y x i
+    1 Y 4 i -- 8 Y x i
+    1 Y 5 i -- 9 Y x i
+    1 Y 6 i -- 10 Y x i
+    1 Y 7 i -- 11 Y x i
+    1 Y 8 i -- 12 Y x i
+    1 Y 9 i -- 13 Y x i
+    1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 1 d
+
+    2 Y x i -- 3 Z 8 d
+    5 Y x i -- 3 Z 7 d
+    6 Y x i -- 3 Z 6 d
+    7 Y x i -- 3 Z 5 d
+    8 Y x i -- 3 Z 4 d
+    9 Y x i -- 3 Z 3 d
+    10 Y x i -- 3 Z 2 d
+    11 Y x i -- 3 Z 1 d
+    12 Y x i -- 3 Z 0 d
+    13 Y x i -- 14 Z 9 d
+    3 retorne
+
+    14 Y _ i -- 3 Y g i
+    14 Y * d -- 14 Y * i
 fim subtrai8
 
 inicio subtrai7 0
-    0 Y - e -- 1 Y * i
-    0 Y g e -- 3 Y _ i
-    0 Y * e -- 0 Y * i
-    1 Y 0 e -- 2 Z 7 d
-    1 Y 1 e -- 2 Z 6 d
-    1 Y 2 e -- 2 Z 5 d
-    1 Y 3 e -- 2 Z 4 d
-    1 Y 4 e -- 2 Z 3 d
-    1 Y 5 e -- 2 Z 2 d
-    1 Y 6 e -- 2 Z 1 d
-    1 Y 7 e -- 2 Z 0 d
-    1 Y 8 e -- 2 Z 9 d
-    1 Y 9 e -- 2 Z 8 d
-    2 retorne
-    3 subtrai6 2
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
+
+    1 Y 0 i -- 2 Y x i
+    1 Y 1 i -- 5 Y x i
+    1 Y 2 i -- 6 Y x i
+    1 Y 3 i -- 7 Y x i
+    1 Y 4 i -- 8 Y x i
+    1 Y 5 i -- 9 Y x i
+    1 Y 6 i -- 10 Y x i
+    1 Y 7 i -- 11 Y x i
+    1 Y 8 i -- 12 Y x i
+    1 Y 9 i -- 13 Y x i
+    1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 1 d
+
+    2 Y x i -- 3 Z 7 d
+    5 Y x i -- 3 Z 6 d
+    6 Y x i -- 3 Z 5 d
+    7 Y x i -- 3 Z 4 d
+    8 Y x i -- 3 Z 3 d
+    9 Y x i -- 3 Z 2 d
+    10 Y x i -- 3 Z 1 d
+    11 Y x i -- 3 Z 0 d
+    12 Y x i -- 14 Z 9 d
+    13 Y x i -- 14 Z 8 d
+    3 retorne
+
+
+    14 Y _ i -- 3 Y g i
+    14 Y * d -- 14 Y * i
 fim subtrai7
 
 
 inicio subtrai6 0
-    0 Y - e -- 1 Y * i
-    0 Y g e -- 3 Y _ i
-    0 Y * e -- 0 Y * i
-    1 Y 0 e -- 2 Z 6 d
-    1 Y 1 e -- 2 Z 5 d
-    1 Y 2 e -- 2 Z 4 d
-    1 Y 3 e -- 2 Z 3 d
-    1 Y 4 e -- 2 Z 2 d
-    1 Y 5 e -- 2 Z 1 d
-    1 Y 6 e -- 2 Z 0 d
-    1 Y 7 e -- 2 Z 9 d
-    1 Y 8 e -- 2 Z 8 d
-    1 Y 9 e -- 2 Z 7 d
-    2 retorne
-    3 subtrai5 2
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
+
+    1 Y 0 i -- 2 Y x i
+    1 Y 1 i -- 5 Y x i
+    1 Y 2 i -- 6 Y x i
+    1 Y 3 i -- 7 Y x i
+    1 Y 4 i -- 8 Y x i
+    1 Y 5 i -- 9 Y x i
+    1 Y 6 i -- 10 Y x i
+    1 Y 7 i -- 11 Y x i
+    1 Y 8 i -- 12 Y x i
+    1 Y 9 i -- 13 Y x i
+    1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 1 d
+
+    2 Y x i -- 3 Z 6 d
+    5 Y x i -- 3 Z 5 d
+    6 Y x i -- 3 Z 4 d
+    7 Y x i -- 3 Z 3 d
+    8 Y x i -- 3 Z 2 d
+    9 Y x i -- 3 Z 1 d
+    10 Y x i -- 3 Z 0 d
+    11 Y x i -- 14 Z 9 d
+    12 Y x i -- 14 Z 8 d
+    13 Y x i -- 14 Z 7 d
+    3 retorne
+
+
+    14 Y _ i -- 3 Y g i
+    14 Y * d -- 14 Y * i
 fim subtrai6
 
 inicio subtrai5 0
-    0 Y - e -- 1 Y * i
-    0 Y g e -- 3 Y _ i
-    0 Y * e -- 0 Y * i
-    1 Y 0 e -- 2 Z 5 d
-    1 Y 1 e -- 2 Z 4 d
-    1 Y 2 e -- 2 Z 3 d
-    1 Y 3 e -- 2 Z 2 d
-    1 Y 4 e -- 2 Z 1 d
-    1 Y 5 e -- 2 Z 0 d
-    1 Y 6 e -- 2 Z 9 d
-    1 Y 7 e -- 2 Z 8 d
-    1 Y 8 e -- 2 Z 7 d
-    1 Y 9 e -- 2 Z 6 d
-    2 retorne
-    3 subtrai4 2
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
+
+    1 Y 0 i -- 2 Y x i
+    1 Y 1 i -- 5 Y x i
+    1 Y 2 i -- 6 Y x i
+    1 Y 3 i -- 7 Y x i
+    1 Y 4 i -- 8 Y x i
+    1 Y 5 i -- 9 Y x i
+    1 Y 6 i -- 10 Y x i
+    1 Y 7 i -- 11 Y x i
+    1 Y 8 i -- 12 Y x i
+    1 Y 9 i -- 13 Y x i
+    1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 1 d
+
+    2 Y x i -- 3 Z 5 d
+    5 Y x i -- 3 Z 4 d
+    6 Y x i -- 3 Z 3 d
+    7 Y x i -- 3 Z 2 d
+    8 Y x i -- 3 Z 1 d
+    9 Y x i -- 3 Z 0 d
+    10 Y x i -- 14 Z 9 d
+    11 Y x i -- 14 Z 8 d
+    12 Y x i -- 14 Z 7 d
+    13 Y x i -- 14 Z 6 d
+    3 retorne
+
+    14 Y _ i -- 3 Y g i
+    14 Y * d -- 14 Y * i
 fim subtrai5
 
 inicio subtrai4 0
-    0 Y - e -- 1 Y * i
-    0 Y g e -- 3 Y _ i
-    0 Y * e -- 0 Y * i
-    1 Y 0 e -- 2 Z 4 d
-    1 Y 1 e -- 2 Z 3 d
-    1 Y 2 e -- 2 Z 2 d
-    1 Y 3 e -- 2 Z 1 d
-    1 Y 4 e -- 2 Z 0 d
-    1 Y 5 e -- 2 Z 9 d
-    1 Y 6 e -- 2 Z 8 d
-    1 Y 7 e -- 2 Z 7 d
-    1 Y 8 e -- 2 Z 6 d
-    1 Y 9 e -- 2 Z 5 d
-    2 retorne
-    3 subtrai3 2
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
+
+    1 Y 0 i -- 2 Y x i
+    1 Y 1 i -- 5 Y x i
+    1 Y 2 i -- 6 Y x i
+    1 Y 3 i -- 7 Y x i
+    1 Y 4 i -- 8 Y x i
+    1 Y 5 i -- 9 Y x i
+    1 Y 6 i -- 10 Y x i
+    1 Y 7 i -- 11 Y x i
+    1 Y 8 i -- 12 Y x i
+    1 Y 9 i -- 13 Y x i
+    1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 1 d
+
+    2 Y x i -- 3 Z 4 d
+    5 Y x i -- 3 Z 3 d
+    6 Y x i -- 3 Z 2 d
+    7 Y x i -- 3 Z 1 d
+    8 Y x i -- 3 Z 0 d
+    9 Y x i -- 14 Z 9 d
+    10 Y x i -- 14 Z 8 d
+    11 Y x i -- 14 Z 7 d
+    12 Y x i -- 14 Z 6 d
+    13 Y x i -- 14 Z 5 d
+    3 retorne
+
+    14 Y _ i -- 3 Y g i
+    14 Y * d -- 14 Y * i
 fim subtrai4
 
 inicio subtrai3 0
-    0 Y - e -- 1 Y * i
-    0 Y g e -- 3 Y _ i
-    0 Y * e -- 0 Y * i
-    1 Y 0 e -- 2 Z 3 d
-    1 Y 1 e -- 2 Z 2 d
-    1 Y 2 e -- 2 Z 1 d
-    1 Y 3 e -- 2 Z 0 d
-    1 Y 4 e -- 2 Z 9 d
-    1 Y 5 e -- 2 Z 8 d
-    1 Y 6 e -- 2 Z 7 d
-    1 Y 7 e -- 2 Z 6 d
-    1 Y 8 e -- 2 Z 5 d
-    1 Y 9 e -- 2 Z 4 d
-    2 retorne
-    3 subtrai2 2
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
+
+    1 Y 0 i -- 2 Y x i
+    1 Y 1 i -- 5 Y x i
+    1 Y 2 i -- 6 Y x i
+    1 Y 3 i -- 7 Y x i
+    1 Y 4 i -- 8 Y x i
+    1 Y 5 i -- 9 Y x i
+    1 Y 6 i -- 10 Y x i
+    1 Y 7 i -- 11 Y x i
+    1 Y 8 i -- 12 Y x i
+    1 Y 9 i -- 13 Y x i
+    1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 1 d
+
+    2 Y x i -- 3 Z 3 d
+    5 Y x i -- 3 Z 2 d
+    6 Y x i -- 3 Z 1 d
+    7 Y x i -- 3 Z 0 d
+    8 Y x i -- 14 Z 9 d
+    9 Y x i -- 14 Z 8 d
+    10 Y x i -- 14 Z 7 d
+    11 Y x i -- 14 Z 6 d
+    12 Y x i -- 14 Z 5 d
+    13 Y x i -- 14 Z 4 d
+    3 retorne
+
+    14 Y _ i -- 3 Y g i
+    14 Y * d -- 14 Y * i
 fim subtrai3
 
 inicio subtrai2 0
-    0 Y - e -- 1 Y * i
-    0 Y g e -- 3 Y _ i
-    0 Y * e -- 0 Y * i
-    1 Y 0 e -- 2 Z 2 d
-    1 Y 1 e -- 2 Z 1 d
-    1 Y 2 e -- 2 Z 0 d
-    1 Y 3 e -- 2 Z 9 d
-    1 Y 4 e -- 2 Z 8 d
-    1 Y 5 e -- 2 Z 7 d
-    1 Y 6 e -- 2 Z 6 d
-    1 Y 7 e -- 2 Z 5 d
-    1 Y 8 e -- 2 Z 4 d
-    1 Y 9 e -- 2 Z 3 d
-    2 retorne
-    3 subtrai1 2
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
+
+    1 Y 0 i -- 2 Y x i
+    1 Y 1 i -- 5 Y x i
+    1 Y 2 i -- 6 Y x i
+    1 Y 3 i -- 7 Y x i
+    1 Y 4 i -- 8 Y x i
+    1 Y 5 i -- 9 Y x i
+    1 Y 6 i -- 10 Y x i
+    1 Y 7 i -- 11 Y x i
+    1 Y 8 i -- 12 Y x i
+    1 Y 9 i -- 13 Y x i
+    1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 1 d
+
+    2 Y x i -- 3 Z 2 d
+    5 Y x i -- 3 Z 1 d
+    6 Y x i -- 3 Z 0 d
+    7 Y x i -- 14 Z 9 d
+    8 Y x i -- 14 Z 8 d
+    9 Y x i -- 14 Z 7 d
+    10 Y x i -- 14 Z 6 d
+    11 Y x i -- 14 Z 5 d
+    12 Y x i -- 14 Z 4 d
+    13 Y x i -- 14 Z 3 d
+    3 retorne
+
+    14 Y _ i -- 3 Y g i
+    14 Y * d -- 14 Y * i
 fim subtrai2
 
 
 inicio subtrai1 0
-    0 Y - e -- 1 Y * i
-    0 Y g e -- 3 Y _ i
-    0 Y * e -- 0 Y * i
-    1 Y 0 e -- 2 Z 1 d
-    1 Y 1 e -- 2 Z 0 d
-    1 Y 2 e -- 2 Z 9 d
-    1 Y 3 e -- 2 Z 8 d
-    1 Y 4 e -- 2 Z 7 d
-    1 Y 5 e -- 2 Z 6 d
-    1 Y 6 e -- 2 Z 5 d
-    1 Y 7 e -- 2 Z 4 d
-    1 Y 8 e -- 2 Z 3 d
-    1 Y 9 e -- 2 Z 2 d
-    2 retorne
-    3 subtrai0 2
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
+
+    1 Y 0 i -- 2 Y x i
+    1 Y 1 i -- 5 Y x i
+    1 Y 2 i -- 6 Y x i
+    1 Y 3 i -- 7 Y x i
+    1 Y 4 i -- 8 Y x i
+    1 Y 5 i -- 9 Y x i
+    1 Y 6 i -- 10 Y x i
+    1 Y 7 i -- 11 Y x i
+    1 Y 8 i -- 12 Y x i
+    1 Y 9 i -- 13 Y x i
+    1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 1 d
+
+    2 Y x i -- 3 Z 1 d
+    5 Y x i -- 14 Z 0 d
+    6 Y x i -- 14 Z 9 d
+    7 Y x i -- 14 Z 8 d
+    8 Y x i -- 14 Z 7 d
+    9 Y x i -- 14 Z 6 d
+    10 Y x i -- 14 Z 5 d
+    11 Y x i -- 14 Z 4 d
+    12 Y x i -- 14 Z 3 d
+    13 Y x i -- 14 Z 2 d
+    3 retorne
+
+    14 Y _ i -- 3 Y g i
+    14 Y * d -- 14 Y * i
 fim subtrai1
 
 inicio subtrai0 0
-    0 Y - e -- 1 Y * i
-    0 Y g e -- 3 Y _ i
-    0 Y * e -- 0 Y * i
-    1 Y 0 e -- 2 Z 0 d
-    1 Y 1 e -- 2 Z 9 d
-    1 Y 2 e -- 2 Z 8 d
-    1 Y 3 e -- 2 Z 7 d
-    1 Y 4 e -- 2 Z 6 d
-    1 Y 5 e -- 2 Z 5 d
-    1 Y 6 e -- 2 Z 4 d
-    1 Y 7 e -- 2 Z 3 d
-    1 Y 8 e -- 2 Z 2 d
-    1 Y 9 e -- 2 Z 1 d
-    2 retorne
-    3 subtrai9 2
+    0 Y + i -- 1 Y * e
+    0 Y _ d -- 1 Z * i
+    0 Y * i -- 0 Y * e
+
+    1 Y 0 i -- 2 Y x i
+    1 Y 1 i -- 5 Y x i
+    1 Y 2 i -- 6 Y x i
+    1 Y 3 i -- 7 Y x i
+    1 Y 4 i -- 8 Y x i
+    1 Y 5 i -- 9 Y x i
+    1 Y 6 i -- 10 Y x i
+    1 Y 7 i -- 11 Y x i
+    1 Y 8 i -- 12 Y x i
+    1 Y 9 i -- 13 Y x i
+    1 Y x i -- 1 Y * e
+    1 Y _ i -- 3 Z 1 d
+
+    2 Y x i -- 3 Z 0 d
+    5 Y x i -- 14 Z 9 d
+    6 Y x i -- 14 Z 8 d
+    7 Y x i -- 14 Z 7 d
+    8 Y x i -- 14 Z 6 d
+    9 Y x i -- 14 Z 5 d
+    10 Y x i -- 14 Z 4 d
+    11 Y x i -- 14 Z 3 d
+    12 Y x i -- 14 Z 2 d
+    13 Y x i -- 14 Z 1 d
+    3 retorne
+
+    14 Y _ i -- 3 Y g i
+    14 Y * d -- 14 Y * i
 fim subtrai0
+
+inicio subtraiAux 0
+   0 Y - i -- 1 Y * e
+   0 Y * i -- 0 Y * e
+
+   1 Y 0 i -- 3 Y 1 i
+   1 Y 1 i -- 3 Y 2 i
+   1 Y 2 i -- 3 Y 3 i
+   1 Y 3 i -- 3 Y 4 i
+   1 Y 4 i -- 3 Y 5 i
+   1 Y 5 i -- 3 Y 6 i
+   1 Y 6 i -- 3 Y 7 i
+   1 Y 7 i -- 3 Y 8 i
+   1 Y 8 i -- 3 Y 9 i
+   1 Y 9 i -- 2 Y 0 e
+   1 Y x i -- 1 Y * e
+   1 Y _ i -- 2 Y * i
+
+   2 Y _ i -- 3 Y 1 e
+   2 Y * i -- 1 Y * i
+
+   3 retorne
+
+  14 Y _ i -- 3 Y g i
+  14 Y * d -- 14 Y * i
+fim subtraiAux

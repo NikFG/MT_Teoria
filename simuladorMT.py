@@ -49,13 +49,13 @@ class MT:
         indexAux = 0
         if index == 'X':
             self.indexX += sinal
-            indexAux = self.indexX+self.negativoX
+            indexAux = self.indexX + self.negativoX
         elif index == 'Y':
             self.indexY += sinal
-            indexAux = self.indexY+self.negativoY
+            indexAux = self.indexY + self.negativoY
         else:
             self.indexZ += sinal
-            indexAux = self.indexZ+self.negativoZ
+            indexAux = self.indexZ + self.negativoZ
 
         if indexAux >= len(self.fitas[index]) and sentido == 'd':
             self.fitas[index] = self.fitas[index] + ['_']
@@ -236,7 +236,7 @@ if __name__ == '__main__':
     while continua:
         lados = []
         i = 0
-        if (estado_atual == fim_aceita or estado_atual == fim_rejeita) and (ordem_execucao[-1]=='main'):
+        if (estado_atual == fim_aceita or estado_atual == fim_rejeita) and (ordem_execucao[-1] == 'main'):
             continua = False
             break
 
@@ -311,8 +311,15 @@ if __name__ == '__main__':
                         print('fitaX: {}'.format(mt.fitas['X']))
                         print('fitaY: {}'.format(mt.fitas['Y']))
                         print('fitaZ: {}'.format(mt.fitas['Z']))
+                        print('Estado:' + str(estado_atual))
+                        print(ordem_execucao[-1])
+                        print(mt.retorna_index('X'))
+                        print(mt.retorna_index('Y'))
+                        print(mt.retorna_index('Z'))
                         print(
                             "_____________________________________________________________________________________________")
+                        print(lado_e)
+                        print(lado_d)
                         opcao = int(input('Opção ? ( 0=termina , −1=resume ) : '))
                         if opcao == 0:
                             exit(0)
@@ -329,7 +336,14 @@ if __name__ == '__main__':
                     print('fitaX: {}'.format(mt.fitas['X']))
                     print('fitaY: {}'.format(mt.fitas['Y']))
                     print('fitaZ: {}'.format(mt.fitas['Z']))
-                    print(mt.indexX)
+                    print(mt.retorna_index('X'))
+                    print(mt.retorna_index('Y'))
+                    print(mt.indexY)
+                    print(mt.retorna_index('Z'))
+                    print('Estado: ' + str(estado_atual))
+                    print(ordem_execucao)
+                    print(lado_e)
+                    print(lado_d)
                     print(
                         "_____________________________________________________________________________________________")
                     print('FIM DA SIMULAÇÃO.')
@@ -385,3 +399,6 @@ if __name__ == '__main__':
         print('fitaZ: {}'.format(mt.fitas['Z']))
         print("_____________________________________________________________________________________________")
         print('FIM DA SIMULAÇÃO.')
+        print(mt.retorna_index('X'))
+        print(mt.retorna_index('Y'))
+        print(mt.retorna_index('Z'))

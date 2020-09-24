@@ -51,7 +51,18 @@ inicio main 0
     27 Y * i -- 2 Y * i
     28 Y x i -- 28 Y * e
     28 Y _ i -- 16 Y * i
+    28 Y 0 i -- 16 Z 0 i
+    28 Y 1 i -- 16 Z 1 i
+    28 Y 2 i -- 16 Z 2 i
+    28 Y 3 i -- 16 Z 3 i
+    28 Y 4 i -- 16 Z 4 i
+    28 Y 5 i -- 16 Z 5 i
+    28 Y 6 i -- 16 Z 6 i
+    28 Y 7 i -- 16 Z 7 i
+    28 Y 8 i -- 16 Z 8 i
+    28 Y 9 i -- 16 Z 9 i
     28 Y * i -- 2 Y * i
+
 fim main
 
 inicio copiaX 0
@@ -108,7 +119,7 @@ inicio somaAux 0
    0 Y + i -- 1 Y * e
    0 Y * i -- 0 Y * e
 
-   1 Y 0 i -- 3 Y 1 i!
+   1 Y 0 i -- 3 Y 1 i
    1 Y 1 i -- 3 Y 2 i
    1 Y 2 i -- 3 Y 3 i
    1 Y 3 i -- 3 Y 4 i
@@ -119,9 +130,10 @@ inicio somaAux 0
    1 Y 8 i -- 3 Y 9 i
    1 Y 9 i -- 2 Y 0 e
    1 Y x i -- 1 Y * e
+   1 Y _ i -- 2 Y * i
 
-   2 Y _ i -- 3 Y 1 i!
-   2 Y * i -- 1 Y * i!
+   2 Y _ i -- 3 Y 1 i
+   2 Y * i -- 1 Y * i
 
    3 retorne
 

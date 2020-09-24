@@ -624,7 +624,7 @@ inicio subtrai9 0
 fim subtrai9
 
 inicio subtrai8 0
-    0 Y + i -- 1 Y * e
+    0 Y - i -- 1 Y * e
     0 Y _ d -- 1 Z * i
     0 Y * i -- 0 Y * e
 
@@ -658,7 +658,7 @@ inicio subtrai8 0
 fim subtrai8
 
 inicio subtrai7 0
-    0 Y + i -- 1 Y * e
+    0 Y - i -- 1 Y * e
     0 Y _ d -- 1 Z * i
     0 Y * i -- 0 Y * e
 
@@ -694,7 +694,7 @@ fim subtrai7
 
 
 inicio subtrai6 0
-    0 Y + i -- 1 Y * e
+    0 Y - i -- 1 Y * e
     0 Y _ d -- 1 Z * i
     0 Y * i -- 0 Y * e
 
@@ -729,7 +729,7 @@ inicio subtrai6 0
 fim subtrai6
 
 inicio subtrai5 0
-    0 Y + i -- 1 Y * e
+    0 Y - i -- 1 Y * e
     0 Y _ d -- 1 Z * i
     0 Y * i -- 0 Y * e
 
@@ -763,8 +763,8 @@ inicio subtrai5 0
 fim subtrai5
 
 inicio subtrai4 0
-    0 Y + i -- 1 Y * e
-    0 Y _ d -- 1 Z * i
+    0 Y - i -- 1 Y * e!
+    0 Y _ d -- 1 Z * i!
     0 Y * i -- 0 Y * e
 
     1 Y 0 i -- 2 Y x i
@@ -774,7 +774,7 @@ inicio subtrai4 0
     1 Y 4 i -- 8 Y x i
     1 Y 5 i -- 9 Y x i
     1 Y 6 i -- 10 Y x i
-    1 Y 7 i -- 11 Y x i
+    1 Y 7 i -- 11 Y x i!
     1 Y 8 i -- 12 Y x i
     1 Y 9 i -- 13 Y x i
     1 Y x i -- 1 Y * e
@@ -797,7 +797,7 @@ inicio subtrai4 0
 fim subtrai4
 
 inicio subtrai3 0
-    0 Y + i -- 1 Y * e
+    0 Y - i -- 1 Y * e
     0 Y _ d -- 1 Z * i
     0 Y * i -- 0 Y * e
 
@@ -831,7 +831,7 @@ inicio subtrai3 0
 fim subtrai3
 
 inicio subtrai2 0
-    0 Y + i -- 1 Y * e
+    0 Y - i -- 1 Y * e
     0 Y _ d -- 1 Z * i
     0 Y * i -- 0 Y * e
 
@@ -866,7 +866,7 @@ fim subtrai2
 
 
 inicio subtrai1 0
-    0 Y + i -- 1 Y * e
+    0 Y - i -- 1 Y * e
     0 Y _ d -- 1 Z * i
     0 Y * i -- 0 Y * e
 
@@ -884,7 +884,7 @@ inicio subtrai1 0
     1 Y _ i -- 3 Z 1 d
 
     2 Y x i -- 3 Z 1 d
-    5 Y x i -- 14 Z 0 d
+    5 Y x i -- 3 Z 0 d
     6 Y x i -- 14 Z 9 d
     7 Y x i -- 14 Z 8 d
     8 Y x i -- 14 Z 7 d
@@ -900,7 +900,7 @@ inicio subtrai1 0
 fim subtrai1
 
 inicio subtrai0 0
-    0 Y + i -- 1 Y * e
+    0 Y - i -- 1 Y * e
     0 Y _ d -- 1 Z * i
     0 Y * i -- 0 Y * e
 

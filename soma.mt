@@ -10,24 +10,26 @@ inicio main 0
     42 Y = e -- 43 Y * i
     42 Y g i -- 43 Y * i
     42 Y _ e -- 42 Y * i
-    43 Y 0 i -- 17 Y x e
-    43 Y 1 i -- 18 Y x e
-    43 Y 2 i -- 19 Y x e
-    43 Y 3 i -- 20 Y x e
-    43 Y 4 i -- 21 Y x e
-    43 Y 5 i -- 22 Y x e
-    43 Y 6 i -- 23 Y x e
-    43 Y 7 i -- 24 Y x e
-    43 Y 8 i -- 25 Y x e
-    43 Y 9 i -- 26 Y x e
-    43 Y x i -- 27 Y * e
-    43 Y g i -- 44 Y _ e
-    43 Y _ i -- 16 Z 1 i
+
+    43 Y 0 i -- 17 Y x e!
+    43 Y 1 i -- 18 Y x e!
+    43 Y 2 i -- 19 Y x e!
+    43 Y 3 i -- 20 Y x e!
+    43 Y 4 i -- 21 Y x e!
+    43 Y 5 i -- 22 Y x e!
+    43 Y 6 i -- 23 Y x e!
+    43 Y 7 i -- 24 Y x e!
+    43 Y 8 i -- 25 Y x e!
+    43 Y 9 i -- 26 Y x e!
+    43 Y x i -- 27 Y * e!
+    43 Y g i -- 44 Y _ e!
+    43 Y _ i -- 16 Z 1 i!
     43 Y * i -- 14 Y * i
 
     1 Y = e -- 2 Y * i
     1 Y g i -- 2 Y * i
     1 Y _ e -- 1 Y * i
+
     2 Y 0 i -- 3 Y x e
     2 Y 1 i -- 4 Y x e
     2 Y 2 i -- 5 Y x e
@@ -557,8 +559,8 @@ fim voltaCabecoteY
 
 
 inicio inverteResultado 0
-    0 Z = i -- 1 Z * d
-    0 Z * i -- 0 Z * e
+    0 Z = i -- 1 Z * d!
+    0 Z * i -- 0 Z * e!
 
     1 Z 0 d -- 1 Y 0 d
     1 Z 1 d -- 1 Y 1 d
@@ -609,15 +611,15 @@ inicio subtrai9 0
     1 Y _ i -- 3 Z 0 d
 
 
-    2 Y x i -- 3 Z 1 d
-    5 Y x i -- 3 Z 2 d
-    6 Y x i -- 3 Z 3 d
-    7 Y x i -- 3 Z 4 d
-    8 Y x i -- 3 Z 5 d
-    9 Y x i -- 3 Z 6 d
-    10 Y x i -- 3 Z 7 d
-    11 Y x i -- 3 Z 8 d
-    12 Y x i -- 3 Z 9 d
+    2 Y x i -- 14 Z 1 d
+    5 Y x i -- 14 Z 2 d
+    6 Y x i -- 14 Z 3 d
+    7 Y x i -- 14 Z 4 d
+    8 Y x i -- 14 Z 5 d
+    9 Y x i -- 14 Z 6 d
+    10 Y x i -- 14 Z 7 d
+    11 Y x i -- 14 Z 8 d
+    12 Y x i -- 14 Z 9 d
     13 Y x i -- 3 Z 0 d
 
     3 retorne
@@ -783,10 +785,10 @@ inicio subtrai4 0
     1 Y x i -- 1 Y * e
     1 Y _ i -- 3 Z 1 d
 
-    2 Y x i -- 14 Z 4 d
-    5 Y x i -- 14 Z 3 d
-    6 Y x i -- 14 Z 2 d
-    7 Y x i -- 14 Z 1 d
+    2 Y x i -- 14 Z 6 d
+    5 Y x i -- 14 Z 7 d
+    6 Y x i -- 14 Z 8 d
+    7 Y x i -- 14 Z 9 d
     8 Y x i -- 3 Z 0 d
     9 Y x i -- 3 Z 1 d
     10 Y x i -- 3 Z 2 d
@@ -940,20 +942,20 @@ inicio subtraiAux 0
    0 Y - i -- 1 Y * e
    0 Y * i -- 0 Y * e
 
-   1 Y 0 i -- 3 Y 1 i
-   1 Y 1 i -- 3 Y 2 i
-   1 Y 2 i -- 3 Y 3 i
-   1 Y 3 i -- 3 Y 4 i
-   1 Y 4 i -- 3 Y 5 i
-   1 Y 5 i -- 3 Y 6 i
-   1 Y 6 i -- 3 Y 7 i
-   1 Y 7 i -- 3 Y 8 i
-   1 Y 8 i -- 3 Y 9 i
-   1 Y 9 i -- 2 Y 0 e
+   1 Y 0 i -- 3 Y 9 i
+   1 Y 1 i -- 3 Y 0 i
+   1 Y 2 i -- 3 Y 1 i
+   1 Y 3 i -- 3 Y 2 i
+   1 Y 4 i -- 3 Y 3 i
+   1 Y 5 i -- 3 Y 4 i
+   1 Y 6 i -- 3 Y 5 i
+   1 Y 7 i -- 3 Y 6 i
+   1 Y 8 i -- 3 Y 7 i
+   1 Y 9 i -- 2 Y 8 e
    1 Y x i -- 1 Y * e
    1 Y _ i -- 2 Y * i
 
-   2 Y _ i -- 3 Y 1 e
+   2 Y _ i -- 3 Y * e
    2 Y * i -- 1 Y * i
 
    3 retorne
@@ -961,3 +963,125 @@ inicio subtraiAux 0
   14 Y _ i -- 3 Y g i
   14 Y * d -- 14 Y * i
 fim subtraiAux
+
+
+inicio verificaMaior 0
+    0 Y - i -- 1 Y * d
+    0 Y * i -- 0 Y * e
+
+    1 Y 0 i -- 2 Y * e
+    1 Y 1 i -- 3 Y * e
+    1 Y 2 i -- 4 Y * e
+    1 Y 3 i -- 5 Y * e
+    1 Y 4 i -- 6 Y * e
+    1 Y 5 i -- 7 Y * e
+    1 Y 6 i -- 8 Y * e
+    1 Y 7 i -- 9 Y * e
+    1 Y 8 i -- 10 Y * e
+    1 Y 9 i -- 11 Y * e
+
+    2 Y * i -- 31 Y * i
+
+    3 Y 0 i -- 31 Y * i
+   ;3 Y 1 i -- 31 Y * i
+    3 Y * i -- 32 Y * i
+
+    4 Y 0 i -- 31 Y * i
+    4 Y 1 i -- 31 Y * i
+    ;4 Y 2 i -- 31 Y * i
+    4 Y * i -- 32 Y * i
+
+    5 Y 0 i -- 31 Y * i
+    5 Y 1 i -- 31 Y * i
+    5 Y 2 i -- 31 Y * i
+    ;5 Y 3 i -- 31 Y * i
+    5 Y * i -- 32 Y * i
+
+    6 Y 0 i -- 31 Y * i
+    6 Y 1 i -- 31 Y * i
+    6 Y 2 i -- 31 Y * i
+    6 Y 3 i -- 31 Y * i
+    6 Y * i -- 32 Y * i
+
+    30 retorne
+    31 CabecoteCertoY 30
+    32 inverteNumero 30
+fim verificaMaior
+
+inicio inverteNumero 0
+    0 Y - i -- 1 Y * d
+    0 Y * i -- 0 Y * e
+
+    1 Y 0 i -- 2 Y _ d
+    1 Y 1 i -- 3 Y _ d
+    1 Y 2 i -- 4 Y _ d
+    1 Y 3 i -- 5 Y _ d
+    1 Y 4 i -- 6 Y _ d
+    1 Y 5 i -- 7 Y _ d
+    1 Y 6 i -- 8 Y _ d
+    1 Y 7 i -- 9 Y _ d
+    1 Y 8 i -- 10 Y _ d
+    1 Y 9 i -- 11 Y _ d
+    1 Y _ i -- 1 Y * d
+    1 Y = i -- 12 Y * i
+
+    2 Y = d -- 0 Y 0 i
+    2 Y * i -- 0 Y * d
+    3 Y = d -- 0 Y 1 i
+    3 Y * i -- 0 Y * d
+    4 Y = d -- 0 Y 2 i
+    4 Y * i -- 0 Y * d
+    5 Y = d -- 0 Y 3 i
+    5 Y * i -- 0 Y * d
+    6 Y = d -- 0 Y 4 i
+    6 Y * i -- 0 Y * d
+    7 Y = d -- 0 Y 5 i
+    7 Y * i -- 0 Y * d
+    8 Y = d -- 0 Y 6 i
+    8 Y * i -- 0 Y * d
+    9 Y = d -- 0 Y 7 i
+    9 Y * i -- 0 Y * d
+    10 Y = d -- 0 Y 8 i
+    10 Y * i -- 0 Y * d
+    11 Y = d -- 0 Y 9 i
+    11 Y * i -- 0 Y * d
+    12 Y - i -- 13 Y * e
+
+    13 Y _ i -- 14 Y - d
+    13 Y * i -- 13 Y * e
+
+    14 Y 0 i -- 15 Y _ d
+    14 Y 1 i -- 16 Y _ d
+    14 Y 2 i -- 17 Y _ d
+    14 Y 3 i -- 18 Y _ d
+    14 Y 4 i -- 19 Y _ d
+    14 Y 5 i -- 20 Y _ d
+    14 Y 6 i -- 21 Y _ d
+    14 Y 7 i -- 22 Y _ d
+    14 Y 8 i -- 23 Y _ d
+    14 Y 9 i -- 24 Y _ d
+
+    15 Y = d -- 0 Y 0 i
+    16 Y * i -- 0 Y * d
+    3 Y = d -- 0 Y 1 i
+    3 Y * i -- 0 Y * d
+    4 Y = d -- 0 Y 2 i
+    4 Y * i -- 0 Y * d
+    5 Y = d -- 0 Y 3 i
+    5 Y * i -- 0 Y * d
+    6 Y = d -- 0 Y 4 i
+    6 Y * i -- 0 Y * d
+    7 Y = d -- 0 Y 5 i
+    7 Y * i -- 0 Y * d
+    8 Y = d -- 0 Y 6 i
+    8 Y * i -- 0 Y * d
+    9 Y = d -- 0 Y 7 i
+    9 Y * i -- 0 Y * d
+    10 Y = d -- 0 Y 8 i
+    10 Y * i -- 0 Y * d
+    11 Y = d -- 0 Y 9 i
+    11 Y * i -- 0 Y * d
+    12 Y - i -- 13 Y * e
+
+    30 retorne
+fim inverteNumero

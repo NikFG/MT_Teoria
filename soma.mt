@@ -11,19 +11,19 @@ inicio main 0
     42 Y g i -- 43 Y * i
     42 Y _ e -- 42 Y * i
 
-    43 Y 0 i -- 17 Y x e!
-    43 Y 1 i -- 18 Y x e!
-    43 Y 2 i -- 19 Y x e!
-    43 Y 3 i -- 20 Y x e!
-    43 Y 4 i -- 21 Y x e!
-    43 Y 5 i -- 22 Y x e!
-    43 Y 6 i -- 23 Y x e!
-    43 Y 7 i -- 24 Y x e!
-    43 Y 8 i -- 25 Y x e!
-    43 Y 9 i -- 26 Y x e!
-    43 Y x i -- 27 Y * e!
-    43 Y g i -- 44 Y _ e!
-    43 Y _ i -- 16 Z 1 i!
+    43 Y 0 i -- 17 Y x e
+    43 Y 1 i -- 18 Y x e
+    43 Y 2 i -- 19 Y x e
+    43 Y 3 i -- 20 Y x e
+    43 Y 4 i -- 21 Y x e
+    43 Y 5 i -- 22 Y x e
+    43 Y 6 i -- 23 Y x e
+    43 Y 7 i -- 24 Y x e
+    43 Y 8 i -- 25 Y x e
+    43 Y 9 i -- 26 Y x e
+    43 Y x i -- 45 Y * e
+    43 Y g i -- 44 Y _ e
+    43 Y _ i -- 16 Z 1 i
     43 Y * i -- 14 Y * i
 
     1 Y = e -- 2 Y * i
@@ -74,7 +74,6 @@ inicio main 0
     26 subtrai9 41
 
     27 Y + i -- 28 Y * e
-    27 Y - i -- 28 Y * e
     27 Y x i -- 27 Y * e
     27 Y * i -- 2 Y * i
 
@@ -105,6 +104,12 @@ inicio main 0
     36 Y * i -- 28 Z 7 d
     37 Y * i -- 28 Z 8 d
     38 Y * i -- 28 Z 9 d
+
+     45 Y - i -- 28 Y * e
+     45 Y x i -- 45 Y * e
+     45 Y * i -- 43 Y * i
+
+
 fim main
 
 inicio copiaX 0
@@ -559,8 +564,8 @@ fim voltaCabecoteY
 
 
 inicio inverteResultado 0
-    0 Z = i -- 1 Z * d!
-    0 Z * i -- 0 Z * e!
+    0 Z = i -- 1 Z * d
+    0 Z * i -- 0 Z * e
 
     1 Z 0 d -- 1 Y 0 d
     1 Z 1 d -- 1 Y 1 d

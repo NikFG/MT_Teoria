@@ -22,7 +22,7 @@ class Instrucao:
 
     def __str__(self) -> str:
         return '{}: {} {} {} {}'. \
-            format(self.funcao, str(self.estado), self.simbolo, self.fita, self.move)
+            format(self.funcao, str(self.estado), self.fita,  self.simbolo, self.move)
 
 
 class MT:

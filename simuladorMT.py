@@ -259,9 +259,9 @@ if __name__ == '__main__':
             lado_e = lados[l][0]
             lado_d = lados[l][1]
             if lado_e.funcao == 'pare':
-                print('fitaX: {}'.format(mt.fitas['X']))
-                print('fitaY: {}'.format(mt.fitas['Y']))
-                print('fitaZ: {}'.format(mt.fitas['Z']))
+                mt.print_fita('X')
+                mt.print_fita('Y')
+                mt.print_fita('Z')
                 print("_______________________________"
                       "______________________________________________________________")
                 print('PARE')
@@ -319,18 +319,11 @@ if __name__ == '__main__':
                         print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
                         print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
                         print("---- breakpoint ----")
-                        print('fitaX: {}'.format(mt.fitas['X']))
-                        print('fitaY: {}'.format(mt.fitas['Y']))
-                        print('fitaZ: {}'.format(mt.fitas['Z']))
-                        print('Estado:' + str(estado_atual))
-                        print(ordem_execucao[-1])
-                        print(mt.retorna_index('X'))
-                        print(mt.retorna_index('Y'))
-                        print(mt.retorna_index('Z'))
+                        mt.print_fita('X')
+                        mt.print_fita('Y')
+                        mt.print_fita('Z')
                         print(
                             "_____________________________________________________________________________________________")
-                        print(lado_e)
-                        print(lado_d)
                         opcao = int(input('Opção ? ( 0=termina , −1=resume ) : '))
                         if opcao == 0:
                             exit(0)
@@ -344,17 +337,9 @@ if __name__ == '__main__':
                     print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
                     print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
                     print('REJEITA')
-                    print('fitaX: {}'.format(mt.fitas['X']))
-                    print('fitaY: {}'.format(mt.fitas['Y']))
-                    print('fitaZ: {}'.format(mt.fitas['Z']))
-                    print(mt.retorna_index('X'))
-                    print(mt.retorna_index('Y'))
-                    print(mt.indexY)
-                    print(mt.retorna_index('Z'))
-                    print('Estado: ' + str(estado_atual))
-                    print(ordem_execucao)
-                    print(lado_e)
-                    print(lado_d)
+                    mt.print_fita('X')
+                    mt.print_fita('Y')
+                    mt.print_fita('Z')
                     print(
                         "_____________________________________________________________________________________________")
                     print('FIM DA SIMULAÇÃO.')
@@ -370,9 +355,9 @@ if __name__ == '__main__':
                             'Já foram executadas ' + str(
                                 contComputacao) + ' computações. Deseja continuar ? ( 0=termina , −1=resume ) : '))
                         if opcao == 0:
-                            print('fitaX: {}'.format(mt.fitas['X']))
-                            print('fitaY: {}'.format(mt.fitas['Y']))
-                            print('fitaZ: {}'.format(mt.fitas['Z']))
+                            mt.print_fita('X')
+                            mt.print_fita('Y')
+                            mt.print_fita('Z')
                             exit(0)
                         elif opcao == -1:
                             stepParameter += 1000
@@ -382,9 +367,9 @@ if __name__ == '__main__':
                 print("Desenvolvido como trabalho prático para a disciplina de Teoria da Computação")
                 print("Lucas Oliveira Silva, 0040498 - IFMG - Formiga, 2020")
                 print("Nikollas Ferreira Gonçalves, 0040890 - IFMG - Formiga, 2020\n")
-                print('fitaX: {}'.format(mt.fitas['X']))
-                print('fitaY: {}'.format(mt.fitas['Y']))
-                print('fitaZ: {}'.format(mt.fitas['Z']))
+                mt.print_fita('X')
+                mt.print_fita('Y')
+                mt.print_fita('Z')
                 print("_____________________________________________________________________________________________")
                 opcao = int(input('Opção ? ( n=passos , 0=termina , −1=resume ) : '))
                 if opcao == 0:

@@ -963,7 +963,7 @@ inicio subtraiAux 0
    1 Y 6 i -- 3 Y 5 i
    1 Y 7 i -- 3 Y 6 i
    1 Y 8 i -- 3 Y 7 i
-   1 Y 9 i -- 2 Y 8 e
+   1 Y 9 i -- 3 Y 8 i
    1 Y x i -- 1 Y * e
    1 Y _ i -- 2 Y * i
 
@@ -982,6 +982,7 @@ inicio verificaMaior 22
 
     22 Y _ i -- 1 Y * e
     22 Y = i -- 1 Y * e
+
     22 Y * i -- 22 Y * d
 
     1 Y 0 i -- 2 Y i i
@@ -1011,6 +1012,7 @@ inicio verificaMaior 22
 
     ;Comparação do 1
      4 Y - i -- 5 Y * e
+     4 Y _ d -- 100 Y e e
      4 Y * i -- 4 Y * e
      
      5 Y 0 i -- 0 Y d e
@@ -1023,6 +1025,7 @@ inicio verificaMaior 22
      
     ;Comparação do 2
      6 Y - i -- 7 Y * e
+     6 Y _ d -- 100 Y e e
      6 Y * i -- 6 Y * e
      
      7 Y 0 i -- 0 Y d e
@@ -1036,6 +1039,7 @@ inicio verificaMaior 22
      
     ;Comparação do 3
      8 Y - i -- 9 Y * e
+     8 Y _ d -- 100 Y e e
      8 Y * i -- 8 Y * e
      
      9 Y 0 i -- 0 Y d e
@@ -1050,6 +1054,7 @@ inicio verificaMaior 22
     
     ;Comparação do 4
      10 Y - i -- 11 Y * e
+     10 Y _ d -- 100 Y e e
      10 Y * i -- 10 Y * e
      
      11 Y 0 i -- 0 Y d e
@@ -1065,6 +1070,7 @@ inicio verificaMaior 22
      
     ;Comparação do 5
      12 Y - i -- 13 Y * e
+     12 Y _ d -- 100 Y e e
      12 Y * i -- 12 Y * e
      
      13 Y 0 i -- 0 Y d e
@@ -1081,6 +1087,7 @@ inicio verificaMaior 22
 
     ;Comparação do 6
      14 Y - i -- 15 Y * e
+     14 Y _ d -- 100 Y e e
      14 Y * i -- 14 Y * e
      
      15 Y 0 i -- 0 Y d e
@@ -1098,6 +1105,7 @@ inicio verificaMaior 22
      
     ;Comparação do 7
      16 Y - i -- 17 Y * e
+     16 Y _ d -- 100 Y e e
      16 Y * i -- 16 Y * e
      
      17 Y 0 i -- 0 Y d e
@@ -1116,6 +1124,7 @@ inicio verificaMaior 22
      
     ;Comparação do 8
      18 Y - i -- 19 Y * e
+     18 Y _ d -- 100 Y e e
      18 Y * i -- 18 Y * e
      
      19 Y 0 i -- 0 Y d e
@@ -1135,6 +1144,7 @@ inicio verificaMaior 22
      
     ;Comparação do 9
      20 Y - i -- 21 Y * e
+     20 Y _ d -- 100 Y e e
      20 Y * i -- 20 Y * e
      
      21 Y 0 i -- 0 Y d e
@@ -1166,7 +1176,14 @@ inicio inverteNumero 0
 
     1 inverteFitaX 100
 
-    
+    99 limpaY 101
+
+    101 X _ i -- 102 X * e
+
+    102 X _ i -- 103 X * d
+    102 X * i -- 102 X * e
+
+    103 removeBrancoY 100
     100 retorne
 fim inverteNumero
 

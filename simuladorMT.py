@@ -396,11 +396,31 @@ if __name__ == '__main__':
     else:
         print('ACEITA')
         print("_____________________________________________________________________________________________")
-        print('fitaX: {}'.format(mt.fitas['X']))
-        print('fitaY: {}'.format(mt.fitas['Y']))
-        print('fitaZ: {}'.format(mt.fitas['Z']))
+        print('Fita X: ', end='')
+        for i in range(0, len(mt.fitas['X'])):
+            if i == mt.retorna_index('X'):
+                print('[' + mt.fitas['X'][i] + ']', end='')
+            else:
+                print(mt.fitas['X'][i], end='')
+        print()
+
+        print('Fita Y: ', end='')
+        for i in range(0, len(mt.fitas['Y'])):
+            if i == mt.retorna_index('Y'):
+                print('[' + mt.fitas['Y'][i] + ']', end='')
+            else:
+                print(mt.fitas['Y'][i], end='')
+        print()
+
+        print('Fita Z: ', end='')
+        for i in range(0, len(mt.fitas['Z'])):
+            if i == mt.retorna_index('Z'):
+                print('[' + mt.fitas['Z'][i] + ']', end='')
+            else:
+                print(mt.fitas['Z'][i], end='')
+        print()
+        # print('fitaX: {}'.format(mt.fitas['X']))
+        # print('fitaY: {}'.format(mt.fitas['Y']))
+        # print('fitaZ: {}'.format(mt.fitas['Z']))
         print("_____________________________________________________________________________________________")
         print('FIM DA SIMULAÇÃO.')
-        print(mt.retorna_index('X'))
-        print(mt.retorna_index('Y'))
-        print(mt.retorna_index('Z'))

@@ -22,7 +22,7 @@ class Instrucao:
 
     def __str__(self) -> str:
         return '{}: {} {} {} {}'. \
-            format(self.funcao, str(self.estado), self.fita,  self.simbolo, self.move)
+            format(self.funcao, str(self.estado), self.fita, self.simbolo, self.move)
 
 
 class MT:
@@ -146,6 +146,8 @@ if __name__ == '__main__':
         arquivoLog = open(logfile, "w")
     fita_x = []
     for e in entrada:
+        if e == ' ':
+            e = '_'
         fita_x.append(e)
     mt = MT()
     lista_transicao = {}
@@ -183,7 +185,7 @@ if __name__ == '__main__':
                     alias.append(al)
 
                 for fx in fita_x:
-                    if fx not in alias and fx != ' ' and fx != '+' and fx != '-' and fx != '=':
+                    if fx not in alias and fx != ' ' and fx != '+' and fx != '-' and fx != '=' and fx != '_':
                         print('Caracter {} não está no alias'.format(fx))
                         exit(-1)
                 mt.fitas['X'] = fita_x

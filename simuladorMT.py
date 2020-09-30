@@ -103,6 +103,15 @@ class MT:
         else:
             self.negativoZ += valor
 
+    def print_fita(self, fita):
+        print('Fita {}: '.format(fita), end='')
+        for i in range(0, len(self.fitas[fita])):
+            if i == self.retorna_index(fita):
+                print('[' + self.fitas[fita][i] + ']', end='')
+            else:
+                print(self.fitas[fita][i], end='')
+        print()
+
 
 if __name__ == '__main__':
     varAlias = ''
@@ -396,31 +405,9 @@ if __name__ == '__main__':
     else:
         print('ACEITA')
         print("_____________________________________________________________________________________________")
-        print('Fita X: ', end='')
-        for i in range(0, len(mt.fitas['X'])):
-            if i == mt.retorna_index('X'):
-                print('[' + mt.fitas['X'][i] + ']', end='')
-            else:
-                print(mt.fitas['X'][i], end='')
-        print()
+        mt.print_fita('X')
+        mt.print_fita('Y')
+        mt.print_fita('Z')
 
-        print('Fita Y: ', end='')
-        for i in range(0, len(mt.fitas['Y'])):
-            if i == mt.retorna_index('Y'):
-                print('[' + mt.fitas['Y'][i] + ']', end='')
-            else:
-                print(mt.fitas['Y'][i], end='')
-        print()
-
-        print('Fita Z: ', end='')
-        for i in range(0, len(mt.fitas['Z'])):
-            if i == mt.retorna_index('Z'):
-                print('[' + mt.fitas['Z'][i] + ']', end='')
-            else:
-                print(mt.fitas['Z'][i], end='')
-        print()
-        # print('fitaX: {}'.format(mt.fitas['X']))
-        # print('fitaY: {}'.format(mt.fitas['Y']))
-        # print('fitaZ: {}'.format(mt.fitas['Z']))
         print("_____________________________________________________________________________________________")
         print('FIM DA SIMULAÇÃO.')
